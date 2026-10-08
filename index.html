@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>UPNG NSL Application Portal</title>
+<title>UPNG Non-School Leaver Application Portal 2027</title>
 
 <style>
 * {
@@ -14,95 +14,39 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f4f7fb;
+    background: #f3f6fa;
     color: #172033;
 }
 
 header {
-    background: #063b73;
+    background: linear-gradient(135deg, #003b73, #005ca8);
     color: white;
+    padding: 25px 15px;
     text-align: center;
-    padding: 20px 15px;
 }
 
-.logo {
-    width: 90px;
-    height: 90px;
-    background: white;
-    border: 4px solid #f5b335;
+.profile-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
     border-radius: 50%;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #063b73;
-    font-weight: bold;
-    font-size: 20px;
+    border: 4px solid white;
+    margin-bottom: 12px;
 }
 
 header h1 {
-    margin: 12px 0 5px;
-    font-size: 24px;
+    margin: 5px 0;
+    font-size: 25px;
 }
 
 header p {
-    margin: 5px 0;
-}
-
-nav {
-    background: #052d57;
-    padding: 12px;
-    text-align: center;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 5px;
-    display: inline-block;
-    padding: 8px 10px;
-    border-radius: 6px;
-}
-
-nav a:hover {
-    background: #174f85;
-}
-
-.hero {
-    background: linear-gradient(135deg, #063b73, #0b568f);
-    color: white;
-    text-align: center;
-    padding: 55px 20px;
-}
-
-.hero h2 {
-    font-size: 32px;
-    margin: 0 0 12px;
-}
-
-.hero p {
-    max-width: 700px;
-    margin: auto;
-    font-size: 16px;
-}
-
-.button {
-    display: inline-block;
-    margin-top: 22px;
-    padding: 13px 22px;
-    background: #f5b335;
-    color: #172033;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
+    margin: 6px 0;
 }
 
 .container {
-    max-width: 1050px;
-    margin: auto;
-    padding: 25px 15px;
+    width: 95%;
+    max-width: 900px;
+    margin: 20px auto;
 }
 
 .card {
@@ -110,52 +54,55 @@ nav a:hover {
     padding: 22px;
     margin-bottom: 20px;
     border-radius: 12px;
-    border: 1px solid #dce3ec;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.hero-img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 h2 {
-    color: #063b73;
-}
-
-h3 {
-    color: #063b73;
+    color: #003b73;
 }
 
 .notice {
     background: #fff8df;
-    border-left: 5px solid #f5b335;
+    border-left: 5px solid #d9a400;
     padding: 15px;
+    border-radius: 6px;
+    margin: 15px 0;
 }
 
-.info {
-    background: #edf6ff;
-    border-left: 5px solid #063b73;
-    padding: 15px;
+.noas-box {
+    background: #eef7ff;
+    border: 1px solid #b9dcf7;
+    padding: 18px;
+    border-radius: 10px;
 }
 
-.program {
-    display: block;
-    padding: 13px;
-    margin: 8px 0;
-    border: 1px solid #d8e0ea;
-    border-radius: 8px;
+.button {
+    display: inline-block;
+    background: #005ca8;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 7px;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
-.program input {
-    margin-right: 8px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+.button:hover {
+    background: #003b73;
 }
 
 label {
-    font-weight: bold;
     display: block;
-    margin-bottom: 5px;
+    font-weight: bold;
+    margin-top: 14px;
 }
 
 input,
@@ -163,51 +110,51 @@ select,
 textarea {
     width: 100%;
     padding: 11px;
-    border: 1px solid #cbd5e1;
-    border-radius: 7px;
+    margin-top: 6px;
+    border: 1px solid #ccd4df;
+    border-radius: 6px;
     font-size: 15px;
 }
 
 textarea {
-    min-height: 90px;
+    min-height: 100px;
 }
 
-fieldset {
-    border: 1px solid #d8e0ea;
-    border-radius: 9px;
-    padding: 18px;
-    margin-bottom: 20px;
+.programme {
+    padding: 12px;
+    border: 1px solid #d7dce3;
+    border-radius: 7px;
+    margin: 8px 0;
 }
 
-legend {
+.programme input {
+    width: auto;
+    margin-right: 8px;
+}
+
+.submit-btn {
+    width: 100%;
+    background: #007a3d;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 7px;
+    font-size: 17px;
     font-weight: bold;
-    color: #063b73;
+    margin-top: 20px;
 }
 
 footer {
-    background: #06284a;
+    background: #003b73;
     color: white;
     text-align: center;
-    padding: 30px 15px;
-    font-size: 13px;
+    padding: 25px 15px;
+    margin-top: 30px;
 }
 
-footer h3 {
+footer a {
     color: white;
-}
-
-@media (max-width:700px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero h2 {
-        font-size: 25px;
-    }
-
-    nav a {
-        font-size: 13px;
-    }
+    font-weight: bold;
 }
 </style>
 </head>
@@ -216,488 +163,386 @@ footer h3 {
 
 <header>
 
-    <div class="logo">
-        UPNG
-    </div>
+    <img
+        class="profile-img"
+        src="IMG_62e8670d-5db2-43cc-a096-e97964c95b8e.jpg"
+        alt="UPNG NSL Portal">
 
-    <h1>University of Papua New Guinea</h1>
+    <h1>UPNG Non-School Leaver Application Portal</h1>
 
-    <p>
-        Non-School Leaver (NSL) Application Portal
-    </p>
+    <p><strong>2027 Admission Cycle</strong></p>
 
-    <p>
-        2027 Undergraduate Admissions
-    </p>
+    <p>Non-School Leaver Application and Document Submission</p>
 
 </header>
 
-<nav>
-    <a href="#home">Home</a>
-    <a href="#notices">Notices</a>
-    <a href="#programmes">Programmes</a>
-    <a href="#application">Application</a>
-    <a href="#documents">Documents</a>
-    <a href="#payment">Payment</a>
-</nav>
-
-<section class="hero" id="home">
-
-    <h2>UPNG Non-School Leaver Portal</h2>
-
-    <p>
-        Welcome to the Non-School Leaver application information
-        portal for prospective applicants seeking information about
-        2027 undergraduate admissions.
-    </p>
-
-    <a class="button" href="#application">
-        START APPLICATION
-    </a>
-
-</section>
-
 <div class="container">
 
-<section class="card" id="notices">
+    <div class="card">
 
-    <h2>Important Admission Notice</h2>
+        <img
+            class="hero-img"
+            src="IMG_8ab70c1b-e490-4a5c-ae81-92200196ce3d.jpg"
+            alt="UPNG NSL Portal">
 
-    <div class="notice">
-
-        <strong>2027 Admission Notice</strong>
+        <h2>Welcome</h2>
 
         <p>
-            Applicants should carefully follow the current official
-            University of Papua New Guinea and DHERST admission
-            instructions.
+            Welcome to the Non-School Leaver application portal.
+            Please complete the required information carefully and
+            provide accurate supporting documents.
+        </p>
+
+        <div class="notice">
+            <strong>Important:</strong>
+            Applicants should ensure that their information and
+            programme choices are consistent with their NOAS account.
+        </div>
+
+    </div>
+
+
+    <!-- NOAS SECTION -->
+
+    <div class="card">
+
+        <h2>NOAS Programme Selection</h2>
+
+        <div class="noas-box">
+
+            <p>
+                If you have already selected your preferred
+                programme/course through your NOAS account, please
+                choose the same programme from the courses offered
+                below.
+            </p>
+
+            <p>
+                <strong>
+                If you have not yet made your programme choice in
+                NOAS, please access the official NOAS portal first
+                and make your programme selection.
+                </strong>
+            </p>
+
+            <a
+                class="button"
+                href="https://apply.dherst.gov.pg"
+                target="_blank"
+                rel="noopener noreferrer">
+                Open NOAS Application Portal
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- APPLICANT INFORMATION -->
+
+    <div class="card">
+
+        <h2>Applicant Information</h2>
+
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your full name">
+
+        <label>Email Address</label>
+        <input type="email" placeholder="Enter your email address">
+
+        <label>Phone Number</label>
+        <input type="tel" placeholder="Enter your phone number">
+
+        <label>Citizenship</label>
+        <select>
+            <option>Select citizenship</option>
+            <option>Papua New Guinea</option>
+            <option>Other</option>
+        </select>
+
+        <label>Current Address</label>
+        <textarea placeholder="Enter your current address"></textarea>
+
+        <label>Province</label>
+        <input type="text" placeholder="Enter province">
+
+        <label>District</label>
+        <input type="text" placeholder="Enter district">
+
+        <label>LLG / Town</label>
+        <input type="text" placeholder="Enter LLG or town">
+
+        <label>Village / Community</label>
+        <input type="text" placeholder="Enter village or community">
+
+    </div>
+
+
+    <!-- EDUCATION -->
+
+    <div class="card">
+
+        <h2>Education Information</h2>
+
+        <label>Last School Attended</label>
+        <input type="text" placeholder="School name">
+
+        <label>Grade 10 Completion Year</label>
+        <input type="number" placeholder="Year">
+
+        <label>Grade 12 Completion Year</label>
+        <input type="number" placeholder="Year">
+
+        <label>Previous Study / DODL / FODE</label>
+        <input type="text" placeholder="Enter details if applicable">
+
+    </div>
+
+
+    <!-- PROGRAMMES -->
+
+    <div class="card">
+
+        <h2>Programme Choice</h2>
+
+        <p>
+            Select the programme that corresponds with your
+            programme choice in NOAS.
+        </p>
+
+        <div class="programme">
+            <label>
+                <input type="radio" name="programme">
+                Business & Management Foundation
+            </label>
+        </div>
+
+        <div class="programme">
+            <label>
+                <input type="radio" name="programme">
+                Bachelor of Laws
+            </label>
+        </div>
+
+        <div class="programme">
+            <label>
+                <input type="radio" name="programme">
+                Bachelor of Arts
+            </label>
+        </div>
+
+        <div class="programme">
+            <label>
+                <input type="radio" name="programme">
+                Bachelor of Arts — Information & Communication Sciences
+            </label>
+        </div>
+
+        <div class="programme">
+            <label>
+                <input type="radio" name="programme">
+                Bachelor of Arts — Journalism & Public Relations
+            </label>
+        </div>
+
+        <div class="programme">
+            <label>
+                <input type="radio" name="programme">
+                Bachelor of Arts — Psychology
+            </label>
+        </div>
+
+        <div class="programme">
+            <label>
+                <input type="radio" name="programme">
+                Bachelor of Arts — Social Work
+            </label>
+        </div>
+
+        <div class="programme">
+            <label>
+                <input type="radio" name="programme">
+                Foundation Program — School of Natural & Physical Sciences
+            </label>
+        </div>
+
+    </div>
+
+
+    <!-- DOCUMENTS -->
+
+    <div class="card">
+
+        <h2>Required Documents</h2>
+
+        <label>Identification Document</label>
+        <input type="file">
+
+        <label>Passport / Applicant Photo</label>
+        <input type="file" accept="image/*">
+
+        <label>Grade 10 Certificate</label>
+        <input type="file">
+
+        <label>Grade 12 Certificate</label>
+        <input type="file">
+
+        <label>DODL / FODE Transcript</label>
+        <input type="file">
+
+    </div>
+
+
+    <!-- PAYMENT -->
+
+    <div class="card">
+
+        <h2>Application Payment</h2>
+
+        <p><strong>Application Fee: K100.00</strong></p>
+
+        <p>
+            <strong>Bank:</strong> BSP
         </p>
 
         <p>
-            Programmes identified for submission through the National
-            Online Application System (NOAS) should be submitted
-            through the applicable DHERST NOAS process.
+            <strong>Account Number:</strong> 0001466960
+        </p>
+
+        <p>
+            <strong>Payee:</strong> Yauyu Turame
+        </p>
+
+        <label>Transaction / Reference Number</label>
+        <input type="text" placeholder="Enter transaction number">
+
+        <label>Payment Date</label>
+        <input type="date">
+
+        <label>Payment Receipt / Confirmation</label>
+        <input type="file">
+
+    </div>
+
+
+    <!-- SUBMISSION -->
+
+    <div class="card">
+
+        <h2>Final Submission</h2>
+
+        <p>
+            Please carefully review all information and documents
+            before submitting your application.
+        </p>
+
+        <button
+            class="submit-btn"
+            type="button"
+            onclick="showConfirmation()">
+            Submit Application
+        </button>
+
+    </div>
+
+
+    <!-- CONFIRMATION -->
+
+    <div class="card" id="confirmation" style="display:none;">
+
+        <h2>Application Submitted</h2>
+
+        <p>
+            <strong>
+            Thank you for submitting your documents.
+            </strong>
+        </p>
+
+        <p>
+            Your application documents have been successfully
+            submitted and will be reviewed.
+        </p>
+
+        <p>
+            Once your documents have been reviewed, we will notify
+            you within one week using the email address you provided.
+        </p>
+
+        <p>
+            Please keep your provided email address active and check
+            your inbox regularly for updates.
         </p>
 
     </div>
 
-</section>
 
-<section class="card" id="programmes">
+    <!-- NOAS SUPPORT -->
 
-    <h2>Programme Selection</h2>
+    <div class="card">
 
-    <p>
-        Select one programme choice where applicable.
-    </p>
+        <h2>NOAS Support</h2>
 
-    <label class="program">
-        <input type="radio" name="programme">
-        Business & Management Foundation
-    </label>
+        <p>
+            For questions or assistance relating to the National
+            Online Application System (NOAS), please contact the
+            DHERST NOAS Support Team.
+        </p>
 
-    <label class="program">
-        <input type="radio" name="programme">
-        Bachelor of Arts
-    </label>
+        <p>
+            <strong>NOAS Support Email:</strong><br>
 
-    <label class="program">
-        <input type="radio" name="programme">
-        Diploma in Language and Communication
-    </label>
+            <a href="mailto:noassupport@dherst.gov.pg">
+                noassupport@dherst.gov.pg
+            </a>
+        </p>
 
-    <label class="program">
-        <input type="radio" name="programme">
-        Foundation Program — School of Natural & Physical Sciences
-    </label>
+        <a
+            class="button"
+            href="https://apply.dherst.gov.pg"
+            target="_blank"
+            rel="noopener noreferrer">
+            NOAS Account Login
+        </a>
 
-    <label class="program">
-        <input type="radio" name="programme">
-        Bachelor of Laws
-    </label>
-
-</section>
-
-<section class="card" id="application">
-
-<h2>Applicant Information</h2>
-
-<form>
-
-<fieldset>
-
-<legend>Personal Details</legend>
-
-<div class="grid">
-
-<div>
-<label>First Name *</label>
-<input type="text">
-</div>
-
-<div>
-<label>Middle Name</label>
-<input type="text">
-</div>
-
-<div>
-<label>Last Name *</label>
-<input type="text">
-</div>
-
-<div>
-<label>Date of Birth *</label>
-<input type="date">
-</div>
-
-<div>
-<label>Gender *</label>
-<select>
-<option>Select</option>
-<option>Male</option>
-<option>Female</option>
-</select>
-</div>
-
-<div>
-<label>Citizenship *</label>
-<input type="text" value="Papua New Guinea">
-</div>
-
-<div>
-<label>Email *</label>
-<input type="email">
-</div>
-
-<div>
-<label>Mobile Phone *</label>
-<input type="tel">
-</div>
+    </div>
 
 </div>
 
-<br>
-
-<label>Current Residential Address</label>
-<textarea></textarea>
-
-<br><br>
-
-<div class="grid">
-
-<div>
-<label>Province</label>
-<input type="text">
-</div>
-
-<div>
-<label>District</label>
-<input type="text">
-</div>
-
-<div>
-<label>LLG</label>
-<input type="text">
-</div>
-
-<div>
-<label>Town / City</label>
-<input type="text">
-</div>
-
-<div>
-<label>Hometown</label>
-<input type="text">
-</div>
-
-<div>
-<label>Village</label>
-<input type="text">
-</div>
-
-<div>
-<label>Preferred Airport</label>
-<input type="text">
-</div>
-
-</div>
-
-</fieldset>
-
-<fieldset>
-
-<legend>Parent / Guardian Details</legend>
-
-<div class="grid">
-
-<div>
-<label>Father / Male Guardian Name</label>
-<input type="text">
-</div>
-
-<div>
-<label>Father / Male Guardian Occupation</label>
-<input type="text">
-</div>
-
-<div>
-<label>Mother / Female Guardian Name</label>
-<input type="text">
-</div>
-
-<div>
-<label>Mother / Female Guardian Occupation</label>
-<input type="text">
-</div>
-
-<div>
-<label>Guardian Phone</label>
-<input type="tel">
-</div>
-
-<div>
-<label>Emergency Contact Name</label>
-<input type="text">
-</div>
-
-<div>
-<label>Emergency Contact Phone</label>
-<input type="tel">
-</div>
-
-<div>
-<label>Relationship</label>
-<input type="text">
-</div>
-
-</div>
-
-</fieldset>
-
-<fieldset>
-
-<legend>Education History</legend>
-
-<div class="grid">
-
-<div>
-<label>Grade 10 School</label>
-<input type="text">
-</div>
-
-<div>
-<label>Grade 10 Completion Year</label>
-<input type="number">
-</div>
-
-<div>
-<label>Grade 12 School</label>
-<input type="text">
-</div>
-
-<div>
-<label>Grade 12 Completion Year</label>
-<input type="number">
-</div>
-
-<div>
-<label>Last Institution Attended</label>
-<input type="text">
-</div>
-
-<div>
-<label>Last Attendance Year</label>
-<input type="number">
-</div>
-
-<div>
-<label>Last Study Mode</label>
-<select>
-<option>Secondary School</option>
-<option>FODE</option>
-<option>DODL</option>
-<option>College / University</option>
-<option>Other</option>
-</select>
-</div>
-
-<div>
-<label>Previous Student Number</label>
-<input type="text">
-</div>
-
-</div>
-
-</fieldset>
-
-<fieldset id="documents">
-
-<legend>Supporting Documents</legend>
-
-<p>
-Upload clear copies of the documents required by the applicable
-official application process.
-</p>
-
-<div class="grid">
-
-<div>
-<label>ID Document</label>
-<input type="file">
-</div>
-
-<div>
-<label>Recent Photograph</label>
-<input type="file">
-</div>
-
-<div>
-<label>Grade 10 Certificate / Result</label>
-<input type="file">
-</div>
-
-<div>
-<label>Grade 12 Certificate / Result</label>
-<input type="file">
-</div>
-
-<div>
-<label>FODE / DODL Transcript</label>
-<input type="file">
-</div>
-
-<div>
-<label>Other Supporting Document</label>
-<input type="file">
-</div>
-
-</div>
-
-</fieldset>
-
-<fieldset id="payment">
-
-<legend>Payment Information</legend>
-
-<div class="info">
-
-<strong>Application Fee: K100.00</strong>
-
-<p>
-Bank: BSP
-<br>
-Account Number: 0001466960
-<br>
-Account Name: Yauyu Turame
-</p>
-
-<p>
-Verify payment instructions against the authorized official
-application process before using this as a live service.
-</p>
-
-</div>
-
-<br>
-
-<div class="grid">
-
-<div>
-<label>Transaction / Reference Number</label>
-<input type="text">
-</div>
-
-<div>
-<label>Payment Date</label>
-<input type="date">
-</div>
-
-<div>
-<label>Payment Method</label>
-<select>
-<option>BSP Internet Banking</option>
-<option>BSP Mobile / SMS Banking</option>
-<option>BSP Branch Deposit</option>
-<option>Other Approved Method</option>
-</select>
-</div>
-
-<div>
-<label>Transaction Confirmation / Receipt</label>
-<input type="file">
-</div>
-
-</div>
-
-</fieldset>
-
-<fieldset>
-
-<legend>Declaration</legend>
-
-<label>
-<input type="checkbox">
-I confirm that the information provided is accurate and that I
-will follow the applicable official UPNG/DHERST admission
-instructions.
-</label>
-
-</fieldset>
-
-<button
-type="button"
-class="button"
-onclick="alert('Application review prototype. Secure submission will be added in a later stage.')">
-
-REVIEW APPLICATION
-
-</button>
-
-</form>
-
-</section>
-
-<section class="card">
-
-<h2>Application Deadline</h2>
-
-<div class="notice">
-
-<strong>30 October 2026</strong>
-
-<p>
-Confirm the final official deadline before publishing this portal
-as a live admissions service.
-</p>
-
-</div>
-
-</section>
-
-</div>
 
 <footer>
 
-<h3>University of Papua New Guinea</h3>
+    <p>
+        UPNG Non-School Leaver Application Portal
+    </p>
 
-<p>
-Non-School Leaver (NSL) Application Portal
-</p>
+    <p>
+        For NOAS support:
+        <a href="mailto:noassupport@dherst.gov.pg">
+            noassupport@dherst.gov.pg
+        </a>
+    </p>
 
-<p>
-2027 Undergraduate Admissions
-</p>
-
-<p>
-This prototype does not replace the official UPNG or DHERST
-application systems.
-</p>
-
-<p>
-© 2026
-</p>
+    <p>
+        Please keep your application information accurate
+        and confidential.
+    </p>
 
 </footer>
 
+
+<script>
+
+function showConfirmation() {
+
+    document.getElementById("confirmation").style.display = "block";
+
+    document.getElementById("confirmation").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+</script>
+
 </body>
-  </html>
+    </html>
