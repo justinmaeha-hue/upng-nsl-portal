@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UPNG NSL Application Portal</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #172033;
+}
+
+header {
+    background: #063b73;
+    color: white;
+    text-align: center;
+    padding: 20px 15px;
+}
+
+.logo {
+    width: 90px;
+    height: 90px;
+    background: white;
+    border: 4px solid #f5b335;
+    border-radius: 50%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #063b73;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+header h1 {
+    margin: 12px 0 5px;
+    font-size: 24px;
+}
+
+header p {
+    margin: 5px 0;
+}
+
+nav {
+    background: #052d57;
+    padding: 12px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 5px;
+    display: inline-block;
+    padding: 8px 10px;
+    border-radius: 6px;
+}
+
+nav a:hover {
+    background: #174f85;
+}
+
+.hero {
+    background: linear-gradient(135deg, #063b73, #0b568f);
+    color: white;
+    text-align: center;
+    padding: 55px 20px;
+}
+
+.hero h2 {
+    font-size: 32px;
+    margin: 0 0 12px;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+    font-size: 16px;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 13px 22px;
+    background: #f5b335;
+    color: #172033;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1050px;
+    margin: auto;
+    padding: 25px 15px;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border: 1px solid #dce3ec;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+}
+
+h2 {
+    color: #063b73;
+}
+
+h3 {
+    color: #063b73;
+}
+
+.notice {
+    background: #fff8df;
+    border-left: 5px solid #f5b335;
+    padding: 15px;
+}
+
+.info {
+    background: #edf6ff;
+    border-left: 5px solid #063b73;
+    padding: 15px;
+}
+
+.program {
+    display: block;
+    padding: 13px;
+    margin: 8px 0;
+    border: 1px solid #d8e0ea;
+    border-radius: 8px;
+}
+
+.program input {
+    margin-right: 8px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+textarea {
+    min-height: 90px;
+}
+
+fieldset {
+    border: 1px solid #d8e0ea;
+    border-radius: 9px;
+    padding: 18px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-weight: bold;
+    color: #063b73;
+}
+
+footer {
+    background: #06284a;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+    font-size: 13px;
+}
+
+footer h3 {
+    color: white;
+}
+
+@media (max-width:700px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h2 {
+        font-size: 25px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        UPNG
+    </div>
+
+    <h1>University of Papua New Guinea</h1>
+
+    <p>
+        Non-School Leaver (NSL) Application Portal
+    </p>
+
+    <p>
+        2027 Undergraduate Admissions
+    </p>
+
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#notices">Notices</a>
+    <a href="#programmes">Programmes</a>
+    <a href="#application">Application</a>
+    <a href="#documents">Documents</a>
+    <a href="#payment">Payment</a>
+</nav>
+
+<section class="hero" id="home">
+
+    <h2>UPNG Non-School Leaver Portal</h2>
+
+    <p>
+        Welcome to the Non-School Leaver application information
+        portal for prospective applicants seeking information about
+        2027 undergraduate admissions.
+    </p>
+
+    <a class="button" href="#application">
+        START APPLICATION
+    </a>
+
+</section>
+
+<div class="container">
+
+<section class="card" id="notices">
+
+    <h2>Important Admission Notice</h2>
+
+    <div class="notice">
+
+        <strong>2027 Admission Notice</strong>
+
+        <p>
+            Applicants should carefully follow the current official
+            University of Papua New Guinea and DHERST admission
+            instructions.
+        </p>
+
+        <p>
+            Programmes identified for submission through the National
+            Online Application System (NOAS) should be submitted
+            through the applicable DHERST NOAS process.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="card" id="programmes">
+
+    <h2>Programme Selection</h2>
+
+    <p>
+        Select one programme choice where applicable.
+    </p>
+
+    <label class="program">
+        <input type="radio" name="programme">
+        Business & Management Foundation
+    </label>
+
+    <label class="program">
+        <input type="radio" name="programme">
+        Bachelor of Arts
+    </label>
+
+    <label class="program">
+        <input type="radio" name="programme">
+        Diploma in Language and Communication
+    </label>
+
+    <label class="program">
+        <input type="radio" name="programme">
+        Foundation Program — School of Natural & Physical Sciences
+    </label>
+
+    <label class="program">
+        <input type="radio" name="programme">
+        Bachelor of Laws
+    </label>
+
+</section>
+
+<section class="card" id="application">
+
+<h2>Applicant Information</h2>
+
+<form>
+
+<fieldset>
+
+<legend>Personal Details</legend>
+
+<div class="grid">
+
+<div>
+<label>First Name *</label>
+<input type="text">
+</div>
+
+<div>
+<label>Middle Name</label>
+<input type="text">
+</div>
+
+<div>
+<label>Last Name *</label>
+<input type="text">
+</div>
+
+<div>
+<label>Date of Birth *</label>
+<input type="date">
+</div>
+
+<div>
+<label>Gender *</label>
+<select>
+<option>Select</option>
+<option>Male</option>
+<option>Female</option>
+</select>
+</div>
+
+<div>
+<label>Citizenship *</label>
+<input type="text" value="Papua New Guinea">
+</div>
+
+<div>
+<label>Email *</label>
+<input type="email">
+</div>
+
+<div>
+<label>Mobile Phone *</label>
+<input type="tel">
+</div>
+
+</div>
+
+<br>
+
+<label>Current Residential Address</label>
+<textarea></textarea>
+
+<br><br>
+
+<div class="grid">
+
+<div>
+<label>Province</label>
+<input type="text">
+</div>
+
+<div>
+<label>District</label>
+<input type="text">
+</div>
+
+<div>
+<label>LLG</label>
+<input type="text">
+</div>
+
+<div>
+<label>Town / City</label>
+<input type="text">
+</div>
+
+<div>
+<label>Hometown</label>
+<input type="text">
+</div>
+
+<div>
+<label>Village</label>
+<input type="text">
+</div>
+
+<div>
+<label>Preferred Airport</label>
+<input type="text">
+</div>
+
+</div>
+
+</fieldset>
+
+<fieldset>
+
+<legend>Parent / Guardian Details</legend>
+
+<div class="grid">
+
+<div>
+<label>Father / Male Guardian Name</label>
+<input type="text">
+</div>
+
+<div>
+<label>Father / Male Guardian Occupation</label>
+<input type="text">
+</div>
+
+<div>
+<label>Mother / Female Guardian Name</label>
+<input type="text">
+</div>
+
+<div>
+<label>Mother / Female Guardian Occupation</label>
+<input type="text">
+</div>
+
+<div>
+<label>Guardian Phone</label>
+<input type="tel">
+</div>
+
+<div>
+<label>Emergency Contact Name</label>
+<input type="text">
+</div>
+
+<div>
+<label>Emergency Contact Phone</label>
+<input type="tel">
+</div>
+
+<div>
+<label>Relationship</label>
+<input type="text">
+</div>
+
+</div>
+
+</fieldset>
+
+<fieldset>
+
+<legend>Education History</legend>
+
+<div class="grid">
+
+<div>
+<label>Grade 10 School</label>
+<input type="text">
+</div>
+
+<div>
+<label>Grade 10 Completion Year</label>
+<input type="number">
+</div>
+
+<div>
+<label>Grade 12 School</label>
+<input type="text">
+</div>
+
+<div>
+<label>Grade 12 Completion Year</label>
+<input type="number">
+</div>
+
+<div>
+<label>Last Institution Attended</label>
+<input type="text">
+</div>
+
+<div>
+<label>Last Attendance Year</label>
+<input type="number">
+</div>
+
+<div>
+<label>Last Study Mode</label>
+<select>
+<option>Secondary School</option>
+<option>FODE</option>
+<option>DODL</option>
+<option>College / University</option>
+<option>Other</option>
+</select>
+</div>
+
+<div>
+<label>Previous Student Number</label>
+<input type="text">
+</div>
+
+</div>
+
+</fieldset>
+
+<fieldset id="documents">
+
+<legend>Supporting Documents</legend>
+
+<p>
+Upload clear copies of the documents required by the applicable
+official application process.
+</p>
+
+<div class="grid">
+
+<div>
+<label>ID Document</label>
+<input type="file">
+</div>
+
+<div>
+<label>Recent Photograph</label>
+<input type="file">
+</div>
+
+<div>
+<label>Grade 10 Certificate / Result</label>
+<input type="file">
+</div>
+
+<div>
+<label>Grade 12 Certificate / Result</label>
+<input type="file">
+</div>
+
+<div>
+<label>FODE / DODL Transcript</label>
+<input type="file">
+</div>
+
+<div>
+<label>Other Supporting Document</label>
+<input type="file">
+</div>
+
+</div>
+
+</fieldset>
+
+<fieldset id="payment">
+
+<legend>Payment Information</legend>
+
+<div class="info">
+
+<strong>Application Fee: K100.00</strong>
+
+<p>
+Bank: BSP
+<br>
+Account Number: 0001466960
+<br>
+Account Name: Yauyu Turame
+</p>
+
+<p>
+Verify payment instructions against the authorized official
+application process before using this as a live service.
+</p>
+
+</div>
+
+<br>
+
+<div class="grid">
+
+<div>
+<label>Transaction / Reference Number</label>
+<input type="text">
+</div>
+
+<div>
+<label>Payment Date</label>
+<input type="date">
+</div>
+
+<div>
+<label>Payment Method</label>
+<select>
+<option>BSP Internet Banking</option>
+<option>BSP Mobile / SMS Banking</option>
+<option>BSP Branch Deposit</option>
+<option>Other Approved Method</option>
+</select>
+</div>
+
+<div>
+<label>Transaction Confirmation / Receipt</label>
+<input type="file">
+</div>
+
+</div>
+
+</fieldset>
+
+<fieldset>
+
+<legend>Declaration</legend>
+
+<label>
+<input type="checkbox">
+I confirm that the information provided is accurate and that I
+will follow the applicable official UPNG/DHERST admission
+instructions.
+</label>
+
+</fieldset>
+
+<button
+type="button"
+class="button"
+onclick="alert('Application review prototype. Secure submission will be added in a later stage.')">
+
+REVIEW APPLICATION
+
+</button>
+
+</form>
+
+</section>
+
+<section class="card">
+
+<h2>Application Deadline</h2>
+
+<div class="notice">
+
+<strong>30 October 2026</strong>
+
+<p>
+Confirm the final official deadline before publishing this portal
+as a live admissions service.
+</p>
+
+</div>
+
+</section>
+
+</div>
+
+<footer>
+
+<h3>University of Papua New Guinea</h3>
+
+<p>
+Non-School Leaver (NSL) Application Portal
+</p>
+
+<p>
+2027 Undergraduate Admissions
+</p>
+
+<p>
+This prototype does not replace the official UPNG or DHERST
+application systems.
+</p>
+
+<p>
+© 2026
+</p>
+
+</footer>
+
+</body>
+  </html>
