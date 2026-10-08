@@ -84,6 +84,15 @@ h2 {
     border-radius: 10px;
 }
 
+.deadline {
+    background: #fff1f1;
+    border-left: 5px solid #d00000;
+    padding: 15px;
+    border-radius: 6px;
+    margin: 15px 0;
+    color: #8b0000;
+}
+
 .button {
     display: inline-block;
     background: #005ca8;
@@ -120,6 +129,22 @@ textarea {
     min-height: 100px;
 }
 
+/* Invalid fields */
+input.invalid,
+select.invalid,
+textarea.invalid {
+    border: 2px solid red;
+    background: #fff0f0;
+}
+
+/* Valid fields */
+input.valid,
+select.valid,
+textarea.valid {
+    border: 2px solid #28a745;
+    background: #f7fff8;
+}
+
 .programme {
     padding: 12px;
     border: 1px solid #d7dce3;
@@ -127,14 +152,25 @@ textarea {
     margin: 8px 0;
 }
 
+.programme label {
+    margin-top: 0;
+    font-weight: normal;
+}
+
 .programme input {
     width: auto;
     margin-right: 8px;
 }
 
+.programme.invalid-programme {
+    border: 2px solid red;
+    background: #fff0f0;
+}
+
+/* Submit button starts RED */
 .submit-btn {
     width: 100%;
-    background: #007a3d;
+    background: red;
     color: white;
     border: none;
     padding: 15px;
@@ -142,6 +178,60 @@ textarea {
     font-size: 17px;
     font-weight: bold;
     margin-top: 20px;
+    cursor: pointer;
+}
+
+/* When everything is valid */
+.submit-btn.ready {
+    background: #007a3d;
+}
+
+/* After submission */
+.submit-btn.submitted {
+    background: white;
+    color: #007a3d;
+    border: 2px solid #007a3d;
+    cursor: default;
+}
+
+.submit-btn:disabled {
+    opacity: 1;
+}
+
+.error-message {
+    display: none;
+    background: #ffe5e5;
+    color: #b00000;
+    border: 1px solid #ff7777;
+    padding: 14px;
+    border-radius: 7px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.email-error {
+    display: none;
+    background: #ffe5e5;
+    color: #b00000;
+    border: 1px solid red;
+    padding: 12px;
+    border-radius: 7px;
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+.success-message {
+    display: none;
+    background: #e7f8ed;
+    color: #075d28;
+    border: 2px solid #24a148;
+    padding: 22px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.success-message h2 {
+    color: #075d28;
 }
 
 footer {
@@ -155,6 +245,12 @@ footer {
 footer a {
     color: white;
     font-weight: bold;
+}
+
+.small-note {
+    font-size: 13px;
+    color: #555;
+    margin-top: 5px;
 }
 </style>
 </head>
@@ -172,16 +268,22 @@ footer a {
 
     <p><strong>2027 Admission Cycle</strong></p>
 
-    <!-- APPLICATION DEADLINE ADDED -->
     <p>
-        <strong>Application Deadline: 28 October 2026 at 12:00 midnight</strong>
+        <strong>
+            Application Deadline: 28 October 2026 at 12:00 midnight
+        </strong>
     </p>
 
-    <p>Non-School Leaver Application and Document Submission</p>
+    <p>
+        Non-School Leaver Application and Document Submission
+    </p>
 
 </header>
 
+
 <div class="container">
+
+    <!-- WELCOME -->
 
     <div class="card">
 
@@ -194,20 +296,20 @@ footer a {
 
         <p>
             Welcome to the Non-School Leaver application portal.
-            Please complete the required information carefully and
+            Please complete all required information carefully and
             provide accurate supporting documents.
         </p>
 
         <div class="notice">
             <strong>Important:</strong>
-            Applicants should ensure that their information and
-            programme choices are consistent with their NOAS account.
+            Applicants should ensure that their personal information
+            and programme choice are consistent with their NOAS account.
         </div>
 
-        <div class="notice">
-            <strong>APPLICATION DEADLINE:</strong>
+        <div class="deadline">
+            <strong>APPLICATION DEADLINE:</strong><br>
             28 October 2026 at 12:00 midnight.
-            Please submit your application before the deadline.
+            Please submit your completed application before the deadline.
         </div>
 
     </div>
@@ -230,9 +332,9 @@ footer a {
 
             <p>
                 <strong>
-                If you have not yet made your programme choice in
-                NOAS, please access the official NOAS portal first
-                and make your programme selection.
+                    If you have not yet made your programme choice in
+                    NOAS, please access the official NOAS portal first
+                    and make your programme selection.
                 </strong>
             </p>
 
@@ -249,239 +351,534 @@ footer a {
     </div>
 
 
-    <!-- APPLICANT INFORMATION -->
+    <!-- APPLICATION FORM -->
 
-    <div class="card">
-
-        <h2>Applicant Information</h2>
-
-        <label>Full Name</label>
-        <input type="text" placeholder="Enter your full name">
-
-        <label>Email Address</label>
-        <input type="email" placeholder="Enter your email address">
-
-        <label>Phone Number</label>
-        <input type="tel" placeholder="Enter your phone number">
-
-        <label>Citizenship</label>
-        <select>
-            <option>Select citizenship</option>
-            <option>Papua New Guinea</option>
-            <option>Other</option>
-        </select>
-
-        <label>Current Address</label>
-        <textarea placeholder="Enter your current address"></textarea>
-
-        <label>Province</label>
-        <input type="text" placeholder="Enter province">
-
-        <label>District</label>
-        <input type="text" placeholder="Enter district">
-
-        <label>LLG / Town</label>
-        <input type="text" placeholder="Enter LLG or town">
-
-        <label>Village / Community</label>
-        <input type="text" placeholder="Enter village or community">
-
-    </div>
+    <form id="applicationForm" novalidate>
 
 
-    <!-- EDUCATION -->
+        <!-- APPLICANT INFORMATION -->
 
-    <div class="card">
+        <div class="card">
 
-        <h2>Education Information</h2>
+            <h2>Applicant Information</h2>
 
-        <label>Last School Attended</label>
-        <input type="text" placeholder="School name">
+            <label for="fullName">Full Name *</label>
+            <input
+                id="fullName"
+                type="text"
+                placeholder="Enter your full name"
+                required>
 
-        <label>Grade 10 Completion Year</label>
-        <input type="number" placeholder="Year">
+            <label for="dob">Date of Birth *</label>
+            <input
+                id="dob"
+                type="date"
+                required>
 
-        <label>Grade 12 Completion Year</label>
-        <input type="number" placeholder="Year">
+            <label for="email">Email Address *</label>
+            <input
+                id="email"
+                type="email"
+                placeholder="Enter your email address"
+                required>
 
-        <label>Previous Study / DODL / FODE</label>
-        <input type="text" placeholder="Enter details if applicable">
+            <div
+                id="emailError"
+                class="email-error">
+                This email address has already been used for an application.
+                Please use a different email address.
+            </div>
 
-    </div>
+            <label for="phone">Phone Number *</label>
+            <input
+                id="phone"
+                type="tel"
+                placeholder="Enter your phone number"
+                required>
 
+            <label for="citizenship">Citizenship *</label>
+            <select
+                id="citizenship"
+                required>
 
-    <!-- PROGRAMMES -->
+                <option value="">Select citizenship</option>
 
-    <div class="card">
+                <option value="Papua New Guinea">
+                    Papua New Guinea
+                </option>
 
-        <h2>Programme Choice</h2>
+                <option value="Other">
+                    Other
+                </option>
 
-        <p>
-            Select the programme that corresponds with your
-            programme choice in NOAS.
-        </p>
+            </select>
 
-        <div class="programme">
-            <label>
-                <input type="radio" name="programme">
-                Business & Management Foundation
-            </label>
+            <label for="address">Current Address *</label>
+
+            <textarea
+                id="address"
+                placeholder="Enter your current address"
+                required></textarea>
+
+            <label for="province">Province *</label>
+
+            <input
+                id="province"
+                type="text"
+                placeholder="Enter province"
+                required>
+
+            <label for="district">District *</label>
+
+            <input
+                id="district"
+                type="text"
+                placeholder="Enter district"
+                required>
+
+            <label for="llg">LLG / Town *</label>
+
+            <input
+                id="llg"
+                type="text"
+                placeholder="Enter LLG or town"
+                required>
+
+            <label for="village">Village / Community *</label>
+
+            <input
+                id="village"
+                type="text"
+                placeholder="Enter village or community"
+                required>
+
         </div>
 
-        <div class="programme">
-            <label>
-                <input type="radio" name="programme">
-                Bachelor of Laws
+
+        <!-- PARENT / GUARDIAN -->
+
+        <div class="card">
+
+            <h2>Parent / Guardian Information</h2>
+
+            <label for="fatherName">
+                Father's Name *
             </label>
+
+            <input
+                id="fatherName"
+                type="text"
+                placeholder="Enter father's full name"
+                required>
+
+            <label for="fatherOccupation">
+                Father's Occupation *
+            </label>
+
+            <input
+                id="fatherOccupation"
+                type="text"
+                placeholder="Enter father's occupation"
+                required>
+
+            <label for="motherName">
+                Mother's Name *
+            </label>
+
+            <input
+                id="motherName"
+                type="text"
+                placeholder="Enter mother's full name"
+                required>
+
+            <label for="motherOccupation">
+                Mother's Occupation *
+            </label>
+
+            <input
+                id="motherOccupation"
+                type="text"
+                placeholder="Enter mother's occupation"
+                required>
+
+            <label for="guardianName">
+                Guardian / Emergency Contact *
+            </label>
+
+            <input
+                id="guardianName"
+                type="text"
+                placeholder="Enter guardian or emergency contact"
+                required>
+
+            <label for="guardianPhone">
+                Guardian / Emergency Contact Phone *
+            </label>
+
+            <input
+                id="guardianPhone"
+                type="tel"
+                placeholder="Enter phone number"
+                required>
+
         </div>
 
-        <div class="programme">
-            <label>
-                <input type="radio" name="programme">
-                Bachelor of Arts
+
+        <!-- EDUCATION -->
+
+        <div class="card">
+
+            <h2>Education Information</h2>
+
+            <label for="lastSchool">
+                Last School Attended *
             </label>
+
+            <input
+                id="lastSchool"
+                type="text"
+                placeholder="Enter school name"
+                required>
+
+            <label for="grade10Year">
+                Grade 10 Completion Year *
+            </label>
+
+            <input
+                id="grade10Year"
+                type="number"
+                min="1950"
+                max="2030"
+                placeholder="Enter year"
+                required>
+
+            <label for="grade12Year">
+                Grade 12 Completion Year *
+            </label>
+
+            <input
+                id="grade12Year"
+                type="number"
+                min="1950"
+                max="2030"
+                placeholder="Enter year"
+                required>
+
+            <label for="previousStudy">
+                Previous Study / DODL / FODE *
+            </label>
+
+            <input
+                id="previousStudy"
+                type="text"
+                placeholder="Enter details, or write None if not applicable"
+                required>
+
         </div>
 
-        <div class="programme">
-            <label>
-                <input type="radio" name="programme">
-                Bachelor of Arts — Information & Communication Sciences
-            </label>
+
+        <!-- PROGRAMMES -->
+
+        <div class="card">
+
+            <h2>Programme Choice *</h2>
+
+            <p>
+                Select the programme that corresponds with your
+                programme choice in NOAS.
+            </p>
+
+            <div class="programme" id="programmeBox">
+
+                <label>
+                    <input
+                        type="radio"
+                        name="programme"
+                        value="Business & Management Foundation">
+                    Business & Management Foundation
+                </label>
+
+            </div>
+
+            <div class="programme">
+
+                <label>
+                    <input
+                        type="radio"
+                        name="programme"
+                        value="Bachelor of Laws">
+                    Bachelor of Laws
+                </label>
+
+            </div>
+
+            <div class="programme">
+
+                <label>
+                    <input
+                        type="radio"
+                        name="programme"
+                        value="Bachelor of Arts">
+                    Bachelor of Arts
+                </label>
+
+            </div>
+
+            <div class="programme">
+
+                <label>
+                    <input
+                        type="radio"
+                        name="programme"
+                        value="Bachelor of Arts — Information & Communication Sciences">
+                    Bachelor of Arts — Information & Communication Sciences
+                </label>
+
+            </div>
+
+            <div class="programme">
+
+                <label>
+                    <input
+                        type="radio"
+                        name="programme"
+                        value="Bachelor of Arts — Journalism & Public Relations">
+                    Bachelor of Arts — Journalism & Public Relations
+                </label>
+
+            </div>
+
+            <div class="programme">
+
+                <label>
+                    <input
+                        type="radio"
+                        name="programme"
+                        value="Bachelor of Arts — Psychology">
+                    Bachelor of Arts — Psychology
+                </label>
+
+            </div>
+
+            <div class="programme">
+
+                <label>
+                    <input
+                        type="radio"
+                        name="programme"
+                        value="Bachelor of Arts — Social Work">
+                    Bachelor of Arts — Social Work
+                </label>
+
+            </div>
+
+            <div class="programme">
+
+                <label>
+                    <input
+                        type="radio"
+                        name="programme"
+                        value="Foundation Program — School of Natural & Physical Sciences">
+                    Foundation Program — School of Natural & Physical Sciences
+                </label>
+
+            </div>
+
         </div>
 
-        <div class="programme">
-            <label>
-                <input type="radio" name="programme">
-                Bachelor of Arts — Journalism & Public Relations
+
+        <!-- DOCUMENTS -->
+
+        <div class="card">
+
+            <h2>Required Documents</h2>
+
+            <p>
+                Please upload clear and readable copies of the required
+                documents.
+            </p>
+
+            <label for="idDocument">
+                Valid ID (any valid ID) *
             </label>
+
+            <input
+                id="idDocument"
+                type="file"
+                accept="image/*,.pdf"
+                required>
+
+            <p class="small-note">
+                Examples include a valid National ID, passport,
+                driver's licence, or other valid identification document.
+            </p>
+
+            <label for="applicantPhoto">
+                Passport / Applicant Photo *
+            </label>
+
+            <input
+                id="applicantPhoto"
+                type="file"
+                accept="image/*"
+                required>
+
+            <label for="grade10Certificate">
+                Grade 10 Certificate *
+            </label>
+
+            <input
+                id="grade10Certificate"
+                type="file"
+                accept=".pdf,image/*"
+                required>
+
+            <label for="grade12Certificate">
+                Grade 12 Certificate *
+            </label>
+
+            <input
+                id="grade12Certificate"
+                type="file"
+                accept=".pdf,image/*"
+                required>
+
+            <label for="transcript">
+                DODL / FODE Transcript *
+            </label>
+
+            <input
+                id="transcript"
+                type="file"
+                accept=".pdf,image/*"
+                required>
+
         </div>
 
-        <div class="programme">
-            <label>
-                <input type="radio" name="programme">
-                Bachelor of Arts — Psychology
+
+        <!-- PAYMENT -->
+
+        <div class="card">
+
+            <h2>Application Payment</h2>
+
+            <p>
+                <strong>Application Fee: K100.00</strong>
+            </p>
+
+            <p>
+                <strong>Bank:</strong> BSP
+            </p>
+
+            <p>
+                <strong>Account Number:</strong> 0001466960
+            </p>
+
+            <p>
+                <strong>Payee:</strong> Yauyu Turame
+            </p>
+
+            <label for="transaction">
+                Transaction / Reference Number *
             </label>
+
+            <input
+                id="transaction"
+                type="text"
+                placeholder="Enter transaction/reference number"
+                required>
+
+            <label for="paymentDate">
+                Payment Date *
+            </label>
+
+            <input
+                id="paymentDate"
+                type="date"
+                required>
+
+            <label for="paymentReceipt">
+                Payment Receipt / Confirmation *
+            </label>
+
+            <input
+                id="paymentReceipt"
+                type="file"
+                accept=".pdf,image/*"
+                required>
+
         </div>
 
-        <div class="programme">
-            <label>
-                <input type="radio" name="programme">
-                Bachelor of Arts — Social Work
-            </label>
+
+        <!-- FINAL SUBMISSION -->
+
+        <div class="card">
+
+            <h2>Final Submission</h2>
+
+            <p>
+                Please carefully review all information and documents
+                before submitting your application.
+            </p>
+
+            <p>
+                Fields marked with <strong>*</strong> are required.
+            </p>
+
+            <div
+                id="errorMessage"
+                class="error-message">
+
+                Please complete all required fields and correct any
+                red-marked information before submitting.
+
+            </div>
+
+            <button
+                id="submitButton"
+                class="submit-btn"
+                type="submit">
+
+                Submit Application
+
+            </button>
+
         </div>
 
-        <div class="programme">
-            <label>
-                <input type="radio" name="programme">
-                Foundation Program — School of Natural & Physical Sciences
-            </label>
-        </div>
-
-    </div>
+    </form>
 
 
-    <!-- DOCUMENTS -->
+    <!-- SUCCESS -->
 
-    <div class="card">
+    <div
+        id="successMessage"
+        class="success-message">
 
-        <h2>Required Documents</h2>
-
-        <label>Identification Document</label>
-        <input type="file">
-
-        <label>Passport / Applicant Photo</label>
-        <input type="file" accept="image/*">
-
-        <label>Grade 10 Certificate</label>
-        <input type="file">
-
-        <label>Grade 12 Certificate</label>
-        <input type="file">
-
-        <label>DODL / FODE Transcript</label>
-        <input type="file">
-
-    </div>
-
-
-    <!-- PAYMENT -->
-
-    <div class="card">
-
-        <h2>Application Payment</h2>
-
-        <p><strong>Application Fee: K100.00</strong></p>
-
-        <p>
-            <strong>Bank:</strong> BSP
-        </p>
-
-        <p>
-            <strong>Account Number:</strong> 0001466960
-        </p>
-
-        <p>
-            <strong>Payee:</strong> Yauyu Turame
-        </p>
-
-        <label>Transaction / Reference Number</label>
-        <input type="text" placeholder="Enter transaction number">
-
-        <label>Payment Date</label>
-        <input type="date">
-
-        <label>Payment Receipt / Confirmation</label>
-        <input type="file">
-
-    </div>
-
-
-    <!-- SUBMISSION -->
-
-    <div class="card">
-
-        <h2>Final Submission</h2>
-
-        <p>
-            Please carefully review all information and documents
-            before submitting your application.
-        </p>
-
-        <button
-            class="submit-btn"
-            type="button"
-            onclick="showConfirmation()">
-            Submit Application
-        </button>
-
-    </div>
-
-
-    <!-- CONFIRMATION -->
-
-    <div class="card" id="confirmation" style="display:none;">
-
-        <h2>Application Submitted</h2>
+        <h2>Application Successfully Submitted</h2>
 
         <p>
             <strong>
-            Thank you for submitting your documents.
+                Thank you for successfully submitting your application
+                and supporting documents.
             </strong>
         </p>
 
         <p>
-            Your application documents have been successfully
-            submitted and will be reviewed.
+            Your application has been received for review.
         </p>
 
         <p>
-            Once your documents have been reviewed, we will notify
-            you within one week using the email address you provided.
+            Please wait a few days while we review your application.
         </p>
 
         <p>
-            Please keep your provided email address active and check
-            your inbox regularly for updates.
+            We will use the same email address you provided to contact
+            you regarding the status of your application.
+        </p>
+
+        <p>
+            Please keep your email address active and check your inbox
+            regularly for updates.
         </p>
 
     </div>
@@ -512,7 +909,9 @@ footer a {
             href="https://apply.dherst.gov.pg"
             target="_blank"
             rel="noopener noreferrer">
+
             NOAS Account Login
+
         </a>
 
     </div>
@@ -543,17 +942,267 @@ footer a {
 
 <script>
 
-function showConfirmation() {
+const form = document.getElementById("applicationForm");
+const submitButton = document.getElementById("submitButton");
+const errorMessage = document.getElementById("errorMessage");
+const successMessage = document.getElementById("successMessage");
+const emailInput = document.getElementById("email");
+const emailError = document.getElementById("emailError");
 
-    document.getElementById("confirmation").style.display = "block";
+let applicationSubmitted = false;
 
-    document.getElementById("confirmation").scrollIntoView({
-        behavior: "smooth"
+
+/*
+====================================================
+CHECK WHETHER EMAIL HAS ALREADY BEEN USED
+====================================================
+*/
+
+function emailAlreadyUsed() {
+
+    const email = emailInput.value.trim().toLowerCase();
+
+    if (!email) {
+        return false;
+    }
+
+    const savedEmail =
+        localStorage.getItem("submittedApplicationEmail");
+
+    return savedEmail === email;
+}
+
+
+/*
+====================================================
+CHECK FORM
+====================================================
+*/
+
+function checkForm() {
+
+    if (applicationSubmitted) {
+        return;
+    }
+
+    let valid = true;
+
+    /*
+     * Check normal required fields
+     */
+
+    const requiredFields =
+        form.querySelectorAll(
+            "input[required], select[required], textarea[required]"
+        );
+
+    requiredFields.forEach(function(field) {
+
+        if (field.type === "radio") {
+            return;
+        }
+
+        if (!field.value || !field.checkValidity()) {
+
+            field.classList.add("invalid");
+            field.classList.remove("valid");
+
+            valid = false;
+
+        } else {
+
+            field.classList.remove("invalid");
+            field.classList.add("valid");
+
+        }
+
     });
 
+
+    /*
+     * Check programme selection
+     */
+
+    const selectedProgramme =
+        form.querySelector(
+            'input[name="programme"]:checked'
+        );
+
+    const programmeBoxes =
+        document.querySelectorAll(".programme");
+
+    if (!selectedProgramme) {
+
+        programmeBoxes.forEach(function(box) {
+            box.classList.add("invalid-programme");
+        });
+
+        valid = false;
+
+    } else {
+
+        programmeBoxes.forEach(function(box) {
+            box.classList.remove("invalid-programme");
+        });
+
+    }
+
+
+    /*
+     * Check duplicate email
+     */
+
+    if (emailAlreadyUsed()) {
+
+        emailInput.classList.add("invalid");
+        emailInput.classList.remove("valid");
+
+        emailError.style.display = "block";
+
+        valid = false;
+
+    } else {
+
+        emailError.style.display = "none";
+
+    }
+
+
+    /*
+     * Change submit button colour
+     */
+
+    if (valid) {
+
+        submitButton.classList.add("ready");
+
+    } else {
+
+        submitButton.classList.remove("ready");
+
+    }
+
+    return valid;
 }
+
+
+/*
+====================================================
+CHECK WHILE APPLICANT IS FILLING THE FORM
+====================================================
+*/
+
+form.addEventListener("input", function() {
+    checkForm();
+});
+
+form.addEventListener("change", function() {
+    checkForm();
+});
+
+
+/*
+====================================================
+SUBMIT APPLICATION
+====================================================
+*/
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    /*
+     * Do not submit if anything is wrong.
+     */
+
+    if (!checkForm()) {
+
+        errorMessage.style.display = "block";
+
+        const firstInvalid =
+            form.querySelector(".invalid");
+
+        if (firstInvalid) {
+
+            firstInvalid.focus();
+
+            firstInvalid.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }
+
+        return;
+    }
+
+
+    /*
+     * Save email locally as used.
+     *
+     * IMPORTANT:
+     * This localStorage check only works on the
+     * same browser/device. A real system needs
+     * a secure server/database for global checking.
+     */
+
+    const email =
+        emailInput.value.trim().toLowerCase();
+
+    localStorage.setItem(
+        "submittedApplicationEmail",
+        email
+    );
+
+
+    /*
+     * Mark application as submitted.
+     */
+
+    applicationSubmitted = true;
+
+
+    /*
+     * Change button from RED to WHITE.
+     */
+
+    submitButton.classList.remove("ready");
+    submitButton.classList.add("submitted");
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Application Submitted";
+
+
+    /*
+     * Hide error message.
+     */
+
+    errorMessage.style.display = "none";
+
+
+    /*
+     * Show successful submission notification.
+     */
+
+    successMessage.style.display = "block";
+
+    successMessage.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+});
+
+
+/*
+====================================================
+INITIAL CHECK
+====================================================
+*/
+
+checkForm();
 
 </script>
 
 </body>
-    </html>
+            </html>
