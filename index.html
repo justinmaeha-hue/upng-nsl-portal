@@ -1,51 +1,29 @@
 
-/* Application deadline banner */
-.deadline-banner {
-    background: #fff3cd;
-    color: #664d03;
-    text-align: center;
-    padding: 20px 12px;
-    border-bottom: 4px solid #d9a400;
+const deadline = new Date("2026-10-29T00:00:00+10:00").getTime();
+
+function updateCountdown() {
+    const now = Date.now();
+    const remaining = deadline - now;
+
+    if (remaining <= 0) {
+        document.getElementById("countdown").style.display = "none";
+        document.getElementById("deadline-status").textContent =
+            "The stated deadline has passed.";
+        return;
+    }
+
+    document.getElementById("days").textContent =
+        Math.floor(remaining / (1000 * 60 * 60 * 24));
+
+    document.getElementById("hours").textContent =
+        Math.floor((remaining / (1000 * 60 * 60)) % 24);
+
+    document.getElementById("minutes").textContent =
+        Math.floor((remaining / (1000 * 60)) % 60);
+
+    document.getElementById("seconds").textContent =
+        Math.floor((remaining / 1000) % 60);
 }
 
-.deadline-banner h2 {
-    color: #8a1c1c;
-    margin: 0 0 10px;
-    font-size: 23px;
-}
-
-.deadline-date {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-#countdown {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin: 15px 0;
-}
-
-.countdown-unit {
-    background: #003b73;
-    color: white;
-    padding: 12px;
-    border-radius: 8px;
-    min-width: 65px;
-}
-
-.countdown-unit strong {
-    display: block;
-    font-size: 24px;
-}
-
-.countdown-unit span {
-    font-size: 12px;
-}
-
-.deadline-warning {
-    font-size: 14px;
-    margin-bottom: 0;
-}
+updateCountdown();
+setInterval(updateCountdown, 1000);
