@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>UPNG Non-School Leaver Application Portal 2027</title>
+<title>UPNG Non-School Leaver Application Portal</title>
 
 <style>
 * {
@@ -14,39 +13,48 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f3f6fa;
+    background: #f1f5f9;
     color: #172033;
 }
 
 header {
-    background: linear-gradient(135deg, #003b73, #005ca8);
+    background: linear-gradient(135deg, #003b73, #0066a1);
     color: white;
-    padding: 25px 15px;
     text-align: center;
+    padding: 25px 15px;
 }
 
-.profile-img {
-    width: 120px;
-    height: 120px;
+header img {
+    width: 95px;
+    height: 95px;
     object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid white;
-    margin-bottom: 12px;
+    border-radius: 10px;
+    margin: 5px;
+    background: white;
 }
 
 header h1 {
-    margin: 5px 0;
+    margin: 10px 0 5px;
     font-size: 25px;
 }
 
 header p {
-    margin: 6px 0;
+    margin: 5px 0;
+}
+
+.deadline {
+    margin-top: 12px;
+    background: #ffcc00;
+    color: #111;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
 }
 
 .container {
-    width: 95%;
     max-width: 900px;
     margin: 20px auto;
+    padding: 15px;
 }
 
 .card {
@@ -57,61 +65,33 @@ header p {
     box-shadow: 0 3px 12px rgba(0,0,0,0.08);
 }
 
-.hero-img {
-    width: 100%;
-    max-height: 350px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
 h2 {
     color: #003b73;
+    margin-top: 0;
+}
+
+.warning {
+    background: #ffe5e5;
+    border: 2px solid #d60000;
+    color: #a00000;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
 .notice {
-    background: #fff8df;
-    border-left: 5px solid #d9a400;
-    padding: 15px;
-    border-radius: 6px;
-    margin: 15px 0;
-}
-
-.noas-box {
     background: #eef7ff;
-    border: 1px solid #b9dcf7;
-    padding: 18px;
-    border-radius: 10px;
-}
-
-.deadline {
-    background: #fff1f1;
-    border-left: 5px solid #d00000;
+    border-left: 5px solid #0066a1;
     padding: 15px;
-    border-radius: 6px;
-    margin: 15px 0;
-    color: #8b0000;
-}
-
-.button {
-    display: inline-block;
-    background: #005ca8;
-    color: white;
-    text-decoration: none;
-    padding: 12px 20px;
-    border-radius: 7px;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.button:hover {
-    background: #003b73;
+    margin-bottom: 15px;
+    border-radius: 5px;
 }
 
 label {
     display: block;
+    margin-top: 13px;
     font-weight: bold;
-    margin-top: 14px;
 }
 
 input,
@@ -120,137 +100,122 @@ textarea {
     width: 100%;
     padding: 11px;
     margin-top: 6px;
-    border: 1px solid #ccd4df;
+    border: 1px solid #bbb;
     border-radius: 6px;
     font-size: 15px;
 }
 
 textarea {
-    min-height: 100px;
+    min-height: 80px;
+    resize: vertical;
 }
 
-/* Invalid fields */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #0066a1;
+}
+
 input.invalid,
 select.invalid,
 textarea.invalid {
-    border: 2px solid red;
-    background: #fff0f0;
+    border: 2px solid #d60000;
+    background: #fff5f5;
 }
 
-/* Valid fields */
 input.valid,
 select.valid,
 textarea.valid {
-    border: 2px solid #28a745;
-    background: #f7fff8;
+    border: 2px solid #168a32;
+    background: #f3fff5;
 }
 
-.programme {
-    padding: 12px;
-    border: 1px solid #d7dce3;
-    border-radius: 7px;
-    margin: 8px 0;
+.error-text {
+    color: #d60000;
+    font-size: 13px;
+    margin-top: 4px;
+    display: none;
 }
 
-.programme label {
-    margin-top: 0;
+.program-box {
+    border: 2px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.program-box.invalid {
+    border-color: #d60000;
+    background: #fff5f5;
+}
+
+.program-option {
+    margin: 9px 0;
     font-weight: normal;
 }
 
-.programme input {
+.program-option input {
     width: auto;
     margin-right: 8px;
 }
 
-.programme.invalid-programme {
-    border: 2px solid red;
-    background: #fff0f0;
-}
-
-/* Submit button starts RED */
-.submit-btn {
+button {
     width: 100%;
-    background: red;
-    color: white;
-    border: none;
     padding: 15px;
-    border-radius: 7px;
+    border: none;
+    border-radius: 8px;
     font-size: 17px;
     font-weight: bold;
-    margin-top: 20px;
     cursor: pointer;
+    margin-top: 20px;
 }
 
-/* When everything is valid */
-.submit-btn.ready {
-    background: #007a3d;
+#submitBtn {
+    background: #d60000;
+    color: white;
 }
 
-/* After submission */
-.submit-btn.submitted {
+#submitBtn.ready {
+    background: #168a32;
+    color: white;
+}
+
+#submitBtn.submitted {
     background: white;
-    color: #007a3d;
-    border: 2px solid #007a3d;
+    color: #168a32;
+    border: 2px solid #168a32;
     cursor: default;
 }
 
-.submit-btn:disabled {
-    opacity: 1;
-}
-
-.error-message {
+.success {
     display: none;
-    background: #ffe5e5;
-    color: #b00000;
-    border: 1px solid #ff7777;
-    padding: 14px;
-    border-radius: 7px;
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-.email-error {
-    display: none;
-    background: #ffe5e5;
-    color: #b00000;
-    border: 1px solid red;
-    padding: 12px;
-    border-radius: 7px;
-    margin-top: 8px;
-    font-weight: bold;
-}
-
-.success-message {
-    display: none;
-    background: #e7f8ed;
-    color: #075d28;
-    border: 2px solid #24a148;
-    padding: 22px;
+    background: #e8f8ed;
+    border: 2px solid #168a32;
+    color: #126b28;
+    padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
 }
 
-.success-message h2 {
-    color: #075d28;
+.success h2 {
+    color: #168a32;
 }
 
 footer {
-    background: #003b73;
-    color: white;
     text-align: center;
-    padding: 25px 15px;
-    margin-top: 30px;
+    padding: 25px;
+    color: #555;
+    font-size: 14px;
 }
 
-footer a {
-    color: white;
-    font-weight: bold;
-}
-
-.small-note {
+.small {
     font-size: 13px;
     color: #555;
-    margin-top: 5px;
+}
+
+.required {
+    color: #d60000;
 }
 </style>
 </head>
@@ -259,267 +224,159 @@ footer a {
 
 <header>
 
-    <img
-        class="profile-img"
-        src="IMG_62e8670d-5db2-43cc-a096-e97964c95b8e.jpg"
-        alt="UPNG NSL Portal">
+    <div>
+        <img src="IMG_62e8670d-5db2-43cc-a096-e97964c95b8e.jpg"
+             alt="Portal Image">
+
+        <img src="IMG_8ab70c1b-e490-4a5c-ae81-92200196ce3d.jpg"
+             alt="Portal Image">
+    </div>
 
     <h1>UPNG Non-School Leaver Application Portal</h1>
 
-    <p><strong>2027 Admission Cycle</strong></p>
+    <p>2027 Admission Application</p>
 
-    <p>
-        <strong>
-            Application Deadline: 28 October 2026 at 12:00 midnight
-        </strong>
-    </p>
-
-    <p>
-        Non-School Leaver Application and Document Submission
-    </p>
+    <div class="deadline">
+        APPLICATION DEADLINE: 28 OCTOBER 2026 — 12:00 MIDNIGHT
+    </div>
 
 </header>
 
-
 <div class="container">
 
-    <!-- WELCOME -->
-
     <div class="card">
-
-        <img
-            class="hero-img"
-            src="IMG_8ab70c1b-e490-4a5c-ae81-92200196ce3d.jpg"
-            alt="UPNG NSL Portal">
 
         <h2>Welcome</h2>
 
+        <div class="notice">
+            Please complete all required sections carefully and upload clear,
+            valid supporting documents.
+        </div>
+
         <p>
-            Welcome to the Non-School Leaver application portal.
-            Please complete all required information carefully and
-            provide accurate supporting documents.
+            This portal is for Non-School Leaver applicants applying for
+            admission consideration.
         </p>
 
-        <div class="notice">
-            <strong>Important:</strong>
-            Applicants should ensure that their personal information
-            and programme choice are consistent with their NOAS account.
-        </div>
-
-        <div class="deadline">
-            <strong>APPLICATION DEADLINE:</strong><br>
-            28 October 2026 at 12:00 midnight.
-            Please submit your completed application before the deadline.
-        </div>
+        <p>
+            Official NOAS information can be accessed through
+            <a href="https://apply.dherst.gov.pg" target="_blank">
+                DHERST NOAS
+            </a>.
+        </p>
 
     </div>
 
 
-    <!-- NOAS SECTION -->
+    <!-- WARNING -->
 
-    <div class="card">
-
-        <h2>NOAS Programme Selection</h2>
-
-        <div class="noas-box">
-
-            <p>
-                If you have already selected your preferred
-                programme/course through your NOAS account, please
-                choose the same programme from the courses offered
-                below.
-            </p>
-
-            <p>
-                <strong>
-                    If you have not yet made your programme choice in
-                    NOAS, please access the official NOAS portal first
-                    and make your programme selection.
-                </strong>
-            </p>
-
-            <a
-                class="button"
-                href="https://apply.dherst.gov.pg"
-                target="_blank"
-                rel="noopener noreferrer">
-                Open NOAS Application Portal
-            </a>
-
-        </div>
-
+    <div class="warning">
+        ⚠️ <strong>IMPORTANT WARNING:</strong>
+        Providing false, misleading, forged, or incorrect information may
+        result in permanent disqualification from UPNG admission.
     </div>
 
-
-    <!-- APPLICATION FORM -->
 
     <form id="applicationForm" novalidate>
 
-
-        <!-- APPLICANT INFORMATION -->
+        <!-- PERSONAL INFORMATION -->
 
         <div class="card">
 
-            <h2>Applicant Information</h2>
+            <h2>1. Applicant Information</h2>
 
-            <label for="fullName">Full Name *</label>
-            <input
-                id="fullName"
-                type="text"
-                placeholder="Enter your full name"
-                required>
+            <label>
+                Full Name <span class="required">*</span>
+            </label>
+            <input type="text" id="fullName" required>
 
-            <label for="dob">Date of Birth *</label>
-            <input
-                id="dob"
-                type="date"
-                required>
+            <label>
+                Email Address <span class="required">*</span>
+            </label>
+            <input type="email" id="email" required>
 
-            <label for="email">Email Address *</label>
-            <input
-                id="email"
-                type="email"
-                placeholder="Enter your email address"
-                required>
-
-            <div
-                id="emailError"
-                class="email-error">
-                This email address has already been used for an application.
-                Please use a different email address.
+            <div id="emailError" class="error-text">
+                This email has already been used for an application.
             </div>
 
-            <label for="phone">Phone Number *</label>
-            <input
-                id="phone"
-                type="tel"
-                placeholder="Enter your phone number"
-                required>
+            <label>
+                Phone Number <span class="required">*</span>
+            </label>
+            <input type="tel" id="phone" required>
 
-            <label for="citizenship">Citizenship *</label>
-            <select
-                id="citizenship"
-                required>
+            <label>
+                Date of Birth <span class="required">*</span>
+            </label>
+            <input type="date" id="dob" required>
 
-                <option value="">Select citizenship</option>
+            <label>
+                Citizenship <span class="required">*</span>
+            </label>
+            <input type="text" id="citizenship" required>
 
-                <option value="Papua New Guinea">
-                    Papua New Guinea
-                </option>
+            <label>
+                Current Address <span class="required">*</span>
+            </label>
+            <textarea id="address" required></textarea>
 
-                <option value="Other">
-                    Other
-                </option>
+            <label>
+                Province <span class="required">*</span>
+            </label>
+            <input type="text" id="province" required>
 
-            </select>
+            <label>
+                District <span class="required">*</span>
+            </label>
+            <input type="text" id="district" required>
 
-            <label for="address">Current Address *</label>
+            <label>
+                LLG <span class="required">*</span>
+            </label>
+            <input type="text" id="llg" required>
 
-            <textarea
-                id="address"
-                placeholder="Enter your current address"
-                required></textarea>
-
-            <label for="province">Province *</label>
-
-            <input
-                id="province"
-                type="text"
-                placeholder="Enter province"
-                required>
-
-            <label for="district">District *</label>
-
-            <input
-                id="district"
-                type="text"
-                placeholder="Enter district"
-                required>
-
-            <label for="llg">LLG / Town *</label>
-
-            <input
-                id="llg"
-                type="text"
-                placeholder="Enter LLG or town"
-                required>
-
-            <label for="village">Village / Community *</label>
-
-            <input
-                id="village"
-                type="text"
-                placeholder="Enter village or community"
-                required>
+            <label>
+                Town / Village <span class="required">*</span>
+            </label>
+            <input type="text" id="village" required>
 
         </div>
 
 
-        <!-- PARENT / GUARDIAN -->
+        <!-- FAMILY INFORMATION -->
 
         <div class="card">
 
-            <h2>Parent / Guardian Information</h2>
+            <h2>2. Parent / Guardian Information</h2>
 
-            <label for="fatherName">
-                Father's Name *
+            <label>
+                Father's Full Name <span class="required">*</span>
             </label>
+            <input type="text" id="fatherName" required>
 
-            <input
-                id="fatherName"
-                type="text"
-                placeholder="Enter father's full name"
-                required>
-
-            <label for="fatherOccupation">
-                Father's Occupation *
+            <label>
+                Father's Occupation <span class="required">*</span>
             </label>
+            <input type="text" id="fatherOccupation" required>
 
-            <input
-                id="fatherOccupation"
-                type="text"
-                placeholder="Enter father's occupation"
-                required>
-
-            <label for="motherName">
-                Mother's Name *
+            <label>
+                Mother's Full Name <span class="required">*</span>
             </label>
+            <input type="text" id="motherName" required>
 
-            <input
-                id="motherName"
-                type="text"
-                placeholder="Enter mother's full name"
-                required>
-
-            <label for="motherOccupation">
-                Mother's Occupation *
+            <label>
+                Mother's Occupation <span class="required">*</span>
             </label>
+            <input type="text" id="motherOccupation" required>
 
-            <input
-                id="motherOccupation"
-                type="text"
-                placeholder="Enter mother's occupation"
-                required>
-
-            <label for="guardianName">
-                Guardian / Emergency Contact *
+            <label>
+                Guardian / Emergency Contact <span class="required">*</span>
             </label>
+            <input type="text" id="guardian" required>
 
-            <input
-                id="guardianName"
-                type="text"
-                placeholder="Enter guardian or emergency contact"
-                required>
-
-            <label for="guardianPhone">
-                Guardian / Emergency Contact Phone *
+            <label>
+                Guardian Phone Number <span class="required">*</span>
             </label>
-
-            <input
-                id="guardianPhone"
-                type="tel"
-                placeholder="Enter phone number"
-                required>
+            <input type="tel" id="guardianPhone" required>
 
         </div>
 
@@ -528,161 +385,39 @@ footer a {
 
         <div class="card">
 
-            <h2>Education Information</h2>
+            <h2>3. Education Information</h2>
 
-            <label for="lastSchool">
-                Last School Attended *
+            <label>
+                Previous School Attended <span class="required">*</span>
             </label>
+            <input type="text" id="previousSchool" required>
 
-            <input
-                id="lastSchool"
-                type="text"
-                placeholder="Enter school name"
-                required>
-
-            <label for="grade10Year">
-                Grade 10 Completion Year *
+            <label>
+                Last School Attended <span class="required">*</span>
             </label>
+            <input type="text" id="lastSchool" required>
 
-            <input
-                id="grade10Year"
-                type="number"
-                min="1950"
-                max="2030"
-                placeholder="Enter year"
-                required>
-
-            <label for="grade12Year">
-                Grade 12 Completion Year *
+            <label>
+                Grade 10 Completion Year <span class="required">*</span>
             </label>
+            <input type="number" id="grade10Year" required>
 
-            <input
-                id="grade12Year"
-                type="number"
-                min="1950"
-                max="2030"
-                placeholder="Enter year"
-                required>
-
-            <label for="previousStudy">
-                Previous Study / DODL / FODE *
+            <label>
+                Grade 12 Completion Year <span class="required">*</span>
             </label>
+            <input type="number" id="grade12Year" required>
 
-            <input
-                id="previousStudy"
-                type="text"
-                placeholder="Enter details, or write None if not applicable"
-                required>
-
-        </div>
-
-
-        <!-- PROGRAMMES -->
-
-        <div class="card">
-
-            <h2>Programme Choice *</h2>
-
-            <p>
-                Select the programme that corresponds with your
-                programme choice in NOAS.
-            </p>
-
-            <div class="programme" id="programmeBox">
-
-                <label>
-                    <input
-                        type="radio"
-                        name="programme"
-                        value="Business & Management Foundation">
-                    Business & Management Foundation
-                </label>
-
-            </div>
-
-            <div class="programme">
-
-                <label>
-                    <input
-                        type="radio"
-                        name="programme"
-                        value="Bachelor of Laws">
-                    Bachelor of Laws
-                </label>
-
-            </div>
-
-            <div class="programme">
-
-                <label>
-                    <input
-                        type="radio"
-                        name="programme"
-                        value="Bachelor of Arts">
-                    Bachelor of Arts
-                </label>
-
-            </div>
-
-            <div class="programme">
-
-                <label>
-                    <input
-                        type="radio"
-                        name="programme"
-                        value="Bachelor of Arts — Information & Communication Sciences">
-                    Bachelor of Arts — Information & Communication Sciences
-                </label>
-
-            </div>
-
-            <div class="programme">
-
-                <label>
-                    <input
-                        type="radio"
-                        name="programme"
-                        value="Bachelor of Arts — Journalism & Public Relations">
-                    Bachelor of Arts — Journalism & Public Relations
-                </label>
-
-            </div>
-
-            <div class="programme">
-
-                <label>
-                    <input
-                        type="radio"
-                        name="programme"
-                        value="Bachelor of Arts — Psychology">
-                    Bachelor of Arts — Psychology
-                </label>
-
-            </div>
-
-            <div class="programme">
-
-                <label>
-                    <input
-                        type="radio"
-                        name="programme"
-                        value="Bachelor of Arts — Social Work">
-                    Bachelor of Arts — Social Work
-                </label>
-
-            </div>
-
-            <div class="programme">
-
-                <label>
-                    <input
-                        type="radio"
-                        name="programme"
-                        value="Foundation Program — School of Natural & Physical Sciences">
-                    Foundation Program — School of Natural & Physical Sciences
-                </label>
-
-            </div>
+            <label>
+                Study Mode / Institution
+                <span class="required">*</span>
+            </label>
+            <select id="studyMode" required>
+                <option value="">Select</option>
+                <option>Regular School</option>
+                <option>DODL</option>
+                <option>FODE</option>
+                <option>Other</option>
+            </select>
 
         </div>
 
@@ -691,67 +426,104 @@ footer a {
 
         <div class="card">
 
-            <h2>Required Documents</h2>
+            <h2>4. Required Documents</h2>
+
+            <p class="small">
+                Upload clear and readable copies of the required documents.
+            </p>
+
+            <label>
+                Valid ID (any valid ID) <span class="required">*</span>
+            </label>
+            <input type="file" id="validId" accept="image/*,.pdf" required>
+
+            <label>
+                Applicant Photo <span class="required">*</span>
+            </label>
+            <input type="file" id="photo" accept="image/*" required>
+
+            <label>
+                Grade 10 Certificate <span class="required">*</span>
+            </label>
+            <input type="file" id="grade10Certificate"
+                   accept="image/*,.pdf" required>
+
+            <label>
+                Grade 12 Certificate <span class="required">*</span>
+            </label>
+            <input type="file" id="grade12Certificate"
+                   accept="image/*,.pdf" required>
+
+            <label>
+                DODL / FODE Transcript
+            </label>
+            <input type="file" id="transcript"
+                   accept="image/*,.pdf">
+
+        </div>
+
+
+        <!-- PROGRAMME -->
+
+        <div class="card">
+
+            <h2>5. Programme Selection</h2>
 
             <p>
-                Please upload clear and readable copies of the required
-                documents.
+                Select <strong>ONE</strong> preferred programme.
             </p>
 
-            <label for="idDocument">
-                Valid ID (any valid ID) *
-            </label>
+            <div class="program-box" id="programBox">
 
-            <input
-                id="idDocument"
-                type="file"
-                accept="image/*,.pdf"
-                required>
+                <label class="program-option">
+                    <input type="radio" name="programme"
+                           value="Business & Management Foundation">
+                    Business & Management Foundation
+                </label>
 
-            <p class="small-note">
-                Examples include a valid National ID, passport,
-                driver's licence, or other valid identification document.
-            </p>
+                <label class="program-option">
+                    <input type="radio" name="programme"
+                           value="Bachelor of Laws">
+                    Bachelor of Laws
+                </label>
 
-            <label for="applicantPhoto">
-                Passport / Applicant Photo *
-            </label>
+                <label class="program-option">
+                    <input type="radio" name="programme"
+                           value="Bachelor of Arts">
+                    Bachelor of Arts
+                </label>
 
-            <input
-                id="applicantPhoto"
-                type="file"
-                accept="image/*"
-                required>
+                <label class="program-option">
+                    <input type="radio" name="programme"
+                           value="Bachelor of Arts — Information & Communication Sciences">
+                    Bachelor of Arts — Information & Communication Sciences
+                </label>
 
-            <label for="grade10Certificate">
-                Grade 10 Certificate *
-            </label>
+                <label class="program-option">
+                    <input type="radio" name="programme"
+                           value="Bachelor of Arts — Journalism & Public Relations">
+                    Bachelor of Arts — Journalism & Public Relations
+                </label>
 
-            <input
-                id="grade10Certificate"
-                type="file"
-                accept=".pdf,image/*"
-                required>
+                <label class="program-option">
+                    <input type="radio" name="programme"
+                           value="Bachelor of Arts — Psychology">
+                    Bachelor of Arts — Psychology
+                </label>
 
-            <label for="grade12Certificate">
-                Grade 12 Certificate *
-            </label>
+                <label class="program-option">
+                    <input type="radio" name="programme"
+                           value="Bachelor of Arts — Social Work">
+                    Bachelor of Arts — Social Work
+                </label>
 
-            <input
-                id="grade12Certificate"
-                type="file"
-                accept=".pdf,image/*"
-                required>
+                <label class="program-option">
+                    <input type="radio" name="programme"
+                           value="Foundation Program — School of Natural & Physical Sciences">
+                    Foundation Program — School of Natural & Physical Sciences
+                </label>
 
-            <label for="transcript">
-                DODL / FODE Transcript *
-            </label>
-
-            <input
-                id="transcript"
-                type="file"
-                accept=".pdf,image/*"
-                required>
+            </div>
 
         </div>
 
@@ -760,203 +532,112 @@ footer a {
 
         <div class="card">
 
-            <h2>Application Payment</h2>
+            <h2>6. Application Payment</h2>
 
-            <p>
-                <strong>Application Fee: K100.00</strong>
-            </p>
+            <label>Bank</label>
+            <input type="text" value="BSP" readonly>
 
-            <p>
-                <strong>Bank:</strong> BSP
-            </p>
+            <label>Account Number</label>
+            <input type="text" value="0001466960" readonly>
 
-            <p>
-                <strong>Account Number:</strong> 0001466960
-            </p>
+            <label>Payee Name</label>
+            <input type="text" value="Yauyu Turame" readonly>
 
-            <p>
-                <strong>Payee:</strong> Yauyu Turame
-            </p>
+            <label>Application Fee</label>
+            <input type="text" value="K100.00" readonly>
 
-            <label for="transaction">
-                Transaction / Reference Number *
+            <label>
+                Transaction / Reference Number
+                <span class="required">*</span>
             </label>
+            <input type="text" id="transactionNumber" required>
 
-            <input
-                id="transaction"
-                type="text"
-                placeholder="Enter transaction/reference number"
-                required>
-
-            <label for="paymentDate">
-                Payment Date *
+            <label>
+                Payment Date <span class="required">*</span>
             </label>
+            <input type="date" id="paymentDate" required>
 
-            <input
-                id="paymentDate"
-                type="date"
-                required>
-
-            <label for="paymentReceipt">
-                Payment Receipt / Confirmation *
+            <label>
+                Payment Receipt / Confirmation
+                <span class="required">*</span>
             </label>
-
-            <input
-                id="paymentReceipt"
-                type="file"
-                accept=".pdf,image/*"
-                required>
+            <input type="file" id="paymentReceipt"
+                   accept="image/*,.pdf" required>
 
         </div>
 
 
-        <!-- FINAL SUBMISSION -->
+        <!-- DECLARATION -->
 
         <div class="card">
 
-            <h2>Final Submission</h2>
+            <h2>7. Applicant Declaration</h2>
+
+            <label>
+                <input type="checkbox" id="declaration" required
+                       style="width:auto;">
+                I declare that the information and documents provided are
+                true and correct.
+                <span class="required">*</span>
+            </label>
+
+        </div>
+
+
+        <!-- SUBMIT -->
+
+        <button type="submit" id="submitBtn">
+            Submit Application
+        </button>
+
+        <div id="successMessage" class="success">
+
+            <h2>Application Successfully Submitted</h2>
 
             <p>
-                Please carefully review all information and documents
-                before submitting your application.
+                Thank you for successfully submitting your application and
+                supporting documents.
             </p>
 
             <p>
-                Fields marked with <strong>*</strong> are required.
+                Your application has been received for review.
             </p>
 
-            <div
-                id="errorMessage"
-                class="error-message">
+            <p>
+                Please wait a few days while we review your application.
+            </p>
 
-                Please complete all required fields and correct any
-                red-marked information before submitting.
+            <p>
+                We will use the same email address you provided to contact
+                you regarding the status of your application.
+            </p>
 
-            </div>
-
-            <button
-                id="submitButton"
-                class="submit-btn"
-                type="submit">
-
-                Submit Application
-
-            </button>
+            <p>
+                Please keep your email address active and check your inbox
+                regularly for updates.
+            </p>
 
         </div>
 
     </form>
 
-
-    <!-- SUCCESS -->
-
-    <div
-        id="successMessage"
-        class="success-message">
-
-        <h2>Application Successfully Submitted</h2>
-
-        <p>
-            <strong>
-                Thank you for successfully submitting your application
-                and supporting documents.
-            </strong>
-        </p>
-
-        <p>
-            Your application has been received for review.
-        </p>
-
-        <p>
-            Please wait a few days while we review your application.
-        </p>
-
-        <p>
-            We will use the same email address you provided to contact
-            you regarding the status of your application.
-        </p>
-
-        <p>
-            Please keep your email address active and check your inbox
-            regularly for updates.
-        </p>
-
-    </div>
-
-
-    <!-- NOAS SUPPORT -->
-
-    <div class="card">
-
-        <h2>NOAS Support</h2>
-
-        <p>
-            For questions or assistance relating to the National
-            Online Application System (NOAS), please contact the
-            DHERST NOAS Support Team.
-        </p>
-
-        <p>
-            <strong>NOAS Support Email:</strong><br>
-
-            <a href="mailto:noassupport@dherst.gov.pg">
-                noassupport@dherst.gov.pg
-            </a>
-        </p>
-
-        <a
-            class="button"
-            href="https://apply.dherst.gov.pg"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            NOAS Account Login
-
-        </a>
-
-    </div>
-
 </div>
 
 
 <footer>
-
-    <p>
-        UPNG Non-School Leaver Application Portal
-    </p>
-
-    <p>
-        For NOAS support:
-        <a href="mailto:noassupport@dherst.gov.pg">
-            noassupport@dherst.gov.pg
-        </a>
-    </p>
-
-    <p>
-        Please keep your application information accurate
-        and confidential.
-    </p>
-
+    UPNG Non-School Leaver Application Portal — 2027
 </footer>
 
 
 <script>
 
 const form = document.getElementById("applicationForm");
-const submitButton = document.getElementById("submitButton");
-const errorMessage = document.getElementById("errorMessage");
+const submitBtn = document.getElementById("submitBtn");
 const successMessage = document.getElementById("successMessage");
 const emailInput = document.getElementById("email");
 const emailError = document.getElementById("emailError");
+const programBox = document.getElementById("programBox");
 
-let applicationSubmitted = false;
-
-
-/*
-====================================================
-CHECK WHETHER EMAIL HAS ALREADY BEEN USED
-====================================================
-*/
 
 function emailAlreadyUsed() {
 
@@ -973,181 +654,127 @@ function emailAlreadyUsed() {
 }
 
 
-/*
-====================================================
-CHECK FORM
-====================================================
-*/
+function checkProgramme() {
 
-function checkForm() {
+    const selected =
+        document.querySelector('input[name="programme"]:checked');
 
-    if (applicationSubmitted) {
-        return;
+    if (selected) {
+        programBox.classList.remove("invalid");
+        return true;
     }
 
-    let valid = true;
+    programBox.classList.add("invalid");
+    return false;
+}
 
-    /*
-     * Check normal required fields
-     */
 
-    const requiredFields =
-        form.querySelectorAll(
-            "input[required], select[required], textarea[required]"
-        );
+function updateValidation() {
 
-    requiredFields.forEach(function(field) {
+    const fields = form.querySelectorAll(
+        "input[required], select[required], textarea[required]"
+    );
 
-        if (field.type === "radio") {
+    fields.forEach(field => {
+
+        if (field.type === "checkbox") {
+
+            if (field.checked) {
+                field.classList.remove("invalid");
+                field.classList.add("valid");
+            } else {
+                field.classList.remove("valid");
+                field.classList.add("invalid");
+            }
+
             return;
         }
 
-        if (!field.value || !field.checkValidity()) {
+        if (field.value.trim() !== "") {
 
-            field.classList.add("invalid");
-            field.classList.remove("valid");
-
-            valid = false;
+            if (field.checkValidity()) {
+                field.classList.remove("invalid");
+                field.classList.add("valid");
+            } else {
+                field.classList.remove("valid");
+                field.classList.add("invalid");
+            }
 
         } else {
 
-            field.classList.remove("invalid");
-            field.classList.add("valid");
-
+            field.classList.remove("valid");
+            field.classList.add("invalid");
         }
 
     });
 
+    const programmeOK = checkProgramme();
 
-    /*
-     * Check programme selection
-     */
-
-    const selectedProgramme =
-        form.querySelector(
-            'input[name="programme"]:checked'
-        );
-
-    const programmeBoxes =
-        document.querySelectorAll(".programme");
-
-    if (!selectedProgramme) {
-
-        programmeBoxes.forEach(function(box) {
-            box.classList.add("invalid-programme");
-        });
-
-        valid = false;
-
-    } else {
-
-        programmeBoxes.forEach(function(box) {
-            box.classList.remove("invalid-programme");
-        });
-
-    }
-
-
-    /*
-     * Check duplicate email
-     */
+    const formOK =
+        form.checkValidity() &&
+        programmeOK &&
+        !emailAlreadyUsed();
 
     if (emailAlreadyUsed()) {
-
+        emailError.style.display = "block";
         emailInput.classList.add("invalid");
         emailInput.classList.remove("valid");
-
-        emailError.style.display = "block";
-
-        valid = false;
-
     } else {
-
         emailError.style.display = "none";
-
     }
 
-
-    /*
-     * Change submit button colour
-     */
-
-    if (valid) {
-
-        submitButton.classList.add("ready");
-
+    if (formOK) {
+        submitBtn.classList.add("ready");
     } else {
-
-        submitButton.classList.remove("ready");
-
+        submitBtn.classList.remove("ready");
     }
 
-    return valid;
 }
 
 
-/*
-====================================================
-CHECK WHILE APPLICANT IS FILLING THE FORM
-====================================================
-*/
+form.addEventListener("input", updateValidation);
+form.addEventListener("change", updateValidation);
 
-form.addEventListener("input", function() {
-    checkForm();
-});
-
-form.addEventListener("change", function() {
-    checkForm();
-});
-
-
-/*
-====================================================
-SUBMIT APPLICATION
-====================================================
-*/
 
 form.addEventListener("submit", function(event) {
 
     event.preventDefault();
 
-    /*
-     * Do not submit if anything is wrong.
-     */
+    updateValidation();
 
-    if (!checkForm()) {
+    if (!form.checkValidity()) {
 
-        errorMessage.style.display = "block";
-
-        const firstInvalid =
-            form.querySelector(".invalid");
-
-        if (firstInvalid) {
-
-            firstInvalid.focus();
-
-            firstInvalid.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-
-        }
+        alert(
+            "Please complete all required fields correctly before submitting."
+        );
 
         return;
     }
 
 
-    /*
-     * Save email locally as used.
-     *
-     * IMPORTANT:
-     * This localStorage check only works on the
-     * same browser/device. A real system needs
-     * a secure server/database for global checking.
-     */
+    if (!checkProgramme()) {
+
+        alert("Please select one programme.");
+
+        return;
+    }
+
+
+    if (emailAlreadyUsed()) {
+
+        alert(
+            "This email address has already been used for an application."
+        );
+
+        emailError.style.display = "block";
+
+        return;
+    }
+
 
     const email =
         emailInput.value.trim().toLowerCase();
+
 
     localStorage.setItem(
         "submittedApplicationEmail",
@@ -1155,54 +782,28 @@ form.addEventListener("submit", function(event) {
     );
 
 
-    /*
-     * Mark application as submitted.
-     */
+    submitBtn.classList.remove("ready");
+    submitBtn.classList.add("submitted");
 
-    applicationSubmitted = true;
+    submitBtn.textContent = "Application Submitted";
 
+    submitBtn.disabled = true;
 
-    /*
-     * Change button from RED to WHITE.
-     */
-
-    submitButton.classList.remove("ready");
-    submitButton.classList.add("submitted");
-
-    submitButton.disabled = true;
-    submitButton.textContent = "Application Submitted";
-
-
-    /*
-     * Hide error message.
-     */
-
-    errorMessage.style.display = "none";
-
-
-    /*
-     * Show successful submission notification.
-     */
 
     successMessage.style.display = "block";
 
-    successMessage.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
     });
 
 });
 
 
-/*
-====================================================
-INITIAL CHECK
-====================================================
-*/
-
-checkForm();
+updateValidation();
 
 </script>
 
 </body>
-            </html>
+    </html>
