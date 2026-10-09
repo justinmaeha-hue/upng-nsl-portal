@@ -1,809 +1,919 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UPNG Non-School Leaver Application Portal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#073b2a">
+  <title>UPNG NSL Application Portal</title>
 
-<style>
-* {
-    box-sizing: border-box;
-}
+  <style>
+    :root {
+      --green: #075b3b;
+      --dark-green: #073b2a;
+      --gold: #f4c542;
+      --light: #f4f7f5;
+      --border: #d8e1dc;
+      --text: #17221c;
+      --muted: #5c6b63;
+      --red: #a51d2d;
+    }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f1f5f9;
-    color: #172033;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-header {
-    background: linear-gradient(135deg, #003b73, #0066a1);
-    color: white;
-    text-align: center;
-    padding: 25px 15px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-header img {
-    width: 95px;
-    height: 95px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin: 5px;
-    background: white;
-}
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-header h1 {
-    margin: 10px 0 5px;
-    font-size: 25px;
-}
+    header {
+      background: linear-gradient(135deg, var(--dark-green), var(--green));
+      color: white;
+      padding: 25px 16px;
+      text-align: center;
+      border-bottom: 5px solid var(--gold);
+    }
 
-header p {
-    margin: 5px 0;
-}
+    .crest {
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      font-size: 30px;
+      font-weight: bold;
+      color: var(--gold);
+    }
 
-.deadline {
-    margin-top: 12px;
-    background: #ffcc00;
-    color: #111;
-    padding: 10px;
-    border-radius: 8px;
-    font-weight: bold;
-}
+    header h1 {
+      margin: 5px 0;
+      font-size: clamp(23px, 5vw, 34px);
+    }
 
-.container {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 15px;
-}
+    header p {
+      margin: 6px 0;
+    }
 
-.card {
-    background: white;
-    padding: 22px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-}
+    .subheading {
+      font-size: 14px;
+      opacity: 0.95;
+    }
 
-h2 {
-    color: #003b73;
-    margin-top: 0;
-}
+    .prototype-label {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 5px 10px;
+      background: #fff3cd;
+      color: #664d03;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: bold;
+    }
 
-.warning {
-    background: #ffe5e5;
-    border: 2px solid #d60000;
-    color: #a00000;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px;
+      background: white;
+      border-bottom: 1px solid var(--border);
+    }
 
-.notice {
-    background: #eef7ff;
-    border-left: 5px solid #0066a1;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-}
+    nav a {
+      text-decoration: none;
+      color: var(--green);
+      font-weight: bold;
+      font-size: 13px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+    }
 
-label {
-    display: block;
-    margin-top: 13px;
-    font-weight: bold;
-}
+    nav a:hover {
+      background: var(--green);
+      color: white;
+    }
 
-input,
-select,
-textarea {
-    width: 100%;
-    padding: 11px;
-    margin-top: 6px;
-    border: 1px solid #bbb;
-    border-radius: 6px;
-    font-size: 15px;
-}
+    .container {
+      width: min(950px, 94%);
+      margin: 22px auto;
+    }
 
-textarea {
-    min-height: 80px;
-    resize: vertical;
-}
+    .notice {
+      padding: 16px;
+      margin-bottom: 18px;
+      border-radius: 8px;
+      background: #fff4d6;
+      border-left: 5px solid #d49a00;
+    }
 
-input:focus,
-select:focus,
-textarea:focus {
-    outline: none;
-    border-color: #0066a1;
-}
+    .notice h2 {
+      margin-top: 0;
+      font-size: 18px;
+    }
 
-input.invalid,
-select.invalid,
-textarea.invalid {
-    border: 2px solid #d60000;
-    background: #fff5f5;
-}
+    .danger {
+      background: #fff0f0;
+      border-left: 5px solid var(--red);
+    }
 
-input.valid,
-select.valid,
-textarea.valid {
-    border: 2px solid #168a32;
-    background: #f3fff5;
-}
+    .info {
+      background: #eaf4ff;
+      border-left: 5px solid #2364aa;
+    }
 
-.error-text {
-    color: #d60000;
-    font-size: 13px;
-    margin-top: 4px;
-    display: none;
-}
+    .section {
+      background: white;
+      padding: 22px;
+      margin-bottom: 20px;
+      border-radius: 9px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.04);
+    }
 
-.program-box {
-    border: 2px solid #ccc;
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 10px;
-}
+    .section h2 {
+      color: var(--green);
+      font-size: 20px;
+      margin: 0 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--gold);
+    }
 
-.program-box.invalid {
-    border-color: #d60000;
-    background: #fff5f5;
-}
+    .section h3 {
+      margin-top: 18px;
+      font-size: 16px;
+    }
 
-.program-option {
-    margin: 9px 0;
-    font-weight: normal;
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
 
-.program-option input {
-    width: auto;
-    margin-right: 8px;
-}
+    .field {
+      min-width: 0;
+      margin-bottom: 14px;
+    }
 
-button {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 20px;
-}
+    .full {
+      grid-column: 1 / -1;
+    }
 
-#submitBtn {
-    background: #d60000;
-    color: white;
-}
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      font-weight: bold;
+    }
 
-#submitBtn.ready {
-    background: #168a32;
-    color: white;
-}
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 11px;
+      border: 1px solid #bdcbc3;
+      border-radius: 5px;
+      font: inherit;
+      font-size: 14px;
+      background: white;
+      color: var(--text);
+    }
 
-#submitBtn.submitted {
-    background: white;
-    color: #168a32;
-    border: 2px solid #168a32;
-    cursor: default;
-}
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 2px solid #7bbca0;
+      border-color: var(--green);
+    }
 
-.success {
-    display: none;
-    background: #e8f8ed;
-    border: 2px solid #168a32;
-    color: #126b28;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-}
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: auto;
+      margin-right: 8px;
+    }
 
-.success h2 {
-    color: #168a32;
-}
+    input[type="file"] {
+      padding: 8px;
+    }
 
-footer {
-    text-align: center;
-    padding: 25px;
-    color: #555;
-    font-size: 14px;
-}
+    .hint {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
 
-.small {
-    font-size: 13px;
-    color: #555;
-}
+    .programme-option {
+      display: flex;
+      align-items: flex-start;
+      padding: 12px;
+      margin-bottom: 9px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-weight: normal;
+      cursor: pointer;
+    }
 
-.required {
-    color: #d60000;
-}
-</style>
+    .programme-option:hover {
+      background: #f1f8f4;
+    }
+
+    .programme-option input {
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .payment-details {
+      background: #f0f8f3;
+      border: 1px solid #b8d6c3;
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .payment-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 9px 0;
+      border-bottom: 1px solid #d5e5da;
+    }
+
+    .payment-row:last-child {
+      border-bottom: none;
+    }
+
+    .payment-row span:first-child {
+      font-weight: bold;
+    }
+
+    .payment-row span:last-child {
+      text-align: right;
+      overflow-wrap: anywhere;
+    }
+
+    .fee {
+      color: var(--green);
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .declaration {
+      padding: 14px;
+      background: #f7f9f8;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .declaration label {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      font-weight: normal;
+    }
+
+    .declaration input {
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    button {
+      border: none;
+      border-radius: 6px;
+      padding: 13px 18px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .submit-btn {
+      flex: 1;
+      background: var(--green);
+      color: white;
+    }
+
+    .submit-btn:hover {
+      background: var(--dark-green);
+    }
+
+    .reset-btn {
+      background: #e6ebe8;
+      color: #26352c;
+    }
+
+    #result {
+      display: none;
+      padding: 18px;
+      margin-bottom: 20px;
+      border: 2px solid #c78c18;
+      border-radius: 8px;
+      background: #fff8e6;
+      overflow-wrap: anywhere;
+    }
+
+    #result h2 {
+      margin-top: 0;
+    }
+
+    footer {
+      background: var(--dark-green);
+      color: white;
+      text-align: center;
+      padding: 24px 14px;
+      margin-top: 35px;
+      font-size: 13px;
+    }
+
+    footer p {
+      margin: 6px 0;
+    }
+
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .section {
+        padding: 16px;
+      }
+
+      .payment-row {
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .payment-row span:last-child {
+        text-align: left;
+      }
+
+      .buttons button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-
-    <div>
-        <img src="IMG_62e8670d-5db2-43cc-a096-e97964c95b8e.jpg"
-             alt="Portal Image">
-
-        <img src="IMG_8ab70c1b-e490-4a5c-ae81-92200196ce3d.jpg"
-             alt="Portal Image">
-    </div>
-
-    <h1>UPNG Non-School Leaver Application Portal</h1>
-
-    <p>2027 Admission Application</p>
-
-    <div class="deadline">
-        APPLICATION DEADLINE: 28 OCTOBER 2026 — 12:00 MIDNIGHT
-    </div>
-
+<header id="home">
+  <div class="crest" aria-hidden="true">UP</div>
+  <h1>University of Papua New Guinea</h1>
+  <p><strong>Non-School Leaver (NSL) Application Portal</strong></p>
+  <p class="subheading">Applicant Information and Application Form</p>
+  <span class="prototype-label">PROTOTYPE — NOT AN OFFICIAL LIVE PORTAL</span>
 </header>
 
-<div class="container">
+<nav aria-label="Main navigation">
+  <a href="#home">Home</a>
+  <a href="#notices">Notices</a>
+  <a href="#application">Apply</a>
+  <a href="#payment">Payment Details</a>
+  <a href="#declaration">Declaration</a>
+</nav>
 
-    <div class="card">
+<main class="container">
 
-        <h2>Welcome</h2>
+  <section class="notice info" id="notices">
+    <h2>Welcome, Non-School Leaver Applicant</h2>
+    <p>
+      Welcome to the NSL application portal prototype. Please read the
+      instructions carefully and complete all required fields before
+      proceeding.
+    </p>
+    <p>
+      <strong>Application deadline displayed in this prototype:</strong>
+      28 October 2026 at 12:00 midnight.
+    </p>
+    <p>
+      This date is not independently verified as an official UPNG deadline.
+      Confirm the current application dates with UPNG before relying on it.
+    </p>
+  </section>
 
-        <div class="notice">
-            Please complete all required sections carefully and upload clear,
-            valid supporting documents.
+  <section class="notice danger">
+    <h2>Important Warning</h2>
+    <p>
+      ⚠️ IMPORTANT WARNING: Providing false, misleading, forged, or incorrect
+      information may result in permanent disqualification from UPNG admission.
+    </p>
+    <p>
+      This is proposed warning text for the prototype. Confirm the official
+      admissions rules and consequences with UPNG.
+    </p>
+  </section>
+
+  <section class="notice">
+    <h2>Before You Apply</h2>
+    <ul>
+      <li>Enter your details accurately.</li>
+      <li>Use an email address and phone number you can access.</li>
+      <li>Prepare your educational documents before completing the form.</li>
+      <li>Select only one preferred programme.</li>
+      <li>Confirm all payment information through an official UPNG channel.</li>
+    </ul>
+    <p>
+      <strong>Privacy notice:</strong> This demonstration page does not securely
+      transmit or store applications. Do not enter real personal information
+      or upload real identity documents on a public prototype.
+    </p>
+  </section>
+
+  <div id="result" role="status" aria-live="polite"></div>
+
+  <form id="nslForm">
+
+    <!-- SECTION 1: APPLICANT DETAILS -->
+    <section class="section" id="application">
+      <h2>Section 1: Applicant Personal Information</h2>
+
+      <div class="grid">
+        <div class="field">
+          <label for="fullName">Full Name *</label>
+          <input id="fullName" name="fullName" type="text"
+                 autocomplete="name" required>
         </div>
 
+        <div class="field">
+          <label for="dob">Date of Birth *</label>
+          <input id="dob" name="dob" type="date" required>
+        </div>
+
+        <div class="field">
+          <label for="gender">Gender *</label>
+          <select id="gender" name="gender" required>
+            <option value="">Select gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Prefer not to say</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="citizenship">Citizenship *</label>
+          <select id="citizenship" name="citizenship" required>
+            <option value="">Select citizenship</option>
+            <option>Papua New Guinea</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="email">Email Address *</label>
+          <input id="email" name="email" type="email"
+                 autocomplete="email" required>
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone Number *</label>
+          <input id="phone" name="phone" type="tel"
+                 autocomplete="tel" required>
+        </div>
+
+        <div class="field full">
+          <label for="address">Current Residential Address *</label>
+          <textarea id="address" name="address" rows="3" required></textarea>
+        </div>
+
+        <div class="field">
+          <label for="province">Province *</label>
+          <input id="province" name="province" type="text" required>
+        </div>
+
+        <div class="field">
+          <label for="district">District *</label>
+          <input id="district" name="district" type="text" required>
+        </div>
+
+        <div class="field">
+          <label for="llg">Local-Level Government (LLG) *</label>
+          <input id="llg" name="llg" type="text" required>
+        </div>
+
+        <div class="field">
+          <label for="village">Town or Village *</label>
+          <input id="village" name="village" type="text" required>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: FAMILY AND EMERGENCY CONTACT -->
+    <section class="section">
+      <h2>Section 2: Parent, Guardian and Emergency Contact</h2>
+
+      <div class="grid">
+        <div class="field">
+          <label for="fatherName">Father's Name</label>
+          <input id="fatherName" name="fatherName" type="text">
+        </div>
+
+        <div class="field">
+          <label for="fatherOccupation">Father's Occupation</label>
+          <input id="fatherOccupation" name="fatherOccupation" type="text">
+        </div>
+
+        <div class="field">
+          <label for="motherName">Mother's Name</label>
+          <input id="motherName" name="motherName" type="text">
+        </div>
+
+        <div class="field">
+          <label for="motherOccupation">Mother's Occupation</label>
+          <input id="motherOccupation" name="motherOccupation" type="text">
+        </div>
+
+        <div class="field">
+          <label for="guardianName">Guardian's Name</label>
+          <input id="guardianName" name="guardianName" type="text">
+        </div>
+
+        <div class="field">
+          <label for="guardianPhone">Guardian's Phone Number</label>
+          <input id="guardianPhone" name="guardianPhone" type="tel">
+        </div>
+
+        <div class="field">
+          <label for="emergencyName">Emergency Contact Name *</label>
+          <input id="emergencyName" name="emergencyName" type="text" required>
+        </div>
+
+        <div class="field">
+          <label for="emergencyPhone">Emergency Contact Phone *</label>
+          <input id="emergencyPhone" name="emergencyPhone" type="tel" required>
+        </div>
+
+        <div class="field full">
+          <label for="relationship">Relationship to Applicant *</label>
+          <input id="relationship" name="relationship" type="text" required>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: EDUCATION -->
+    <section class="section">
+      <h2>Section 3: Educational Background</h2>
+
+      <div class="grid">
+        <div class="field">
+          <label for="lastSchool">Last School Attended *</label>
+          <input id="lastSchool" name="lastSchool" type="text" required>
+        </div>
+
+        <div class="field">
+          <label for="previousSchool">Previous School, if different</label>
+          <input id="previousSchool" name="previousSchool" type="text">
+        </div>
+
+        <div class="field">
+          <label for="grade10Year">Grade 10 Completion Year</label>
+          <input id="grade10Year" name="grade10Year" type="number"
+                 min="1950" max="2100">
+        </div>
+
+        <div class="field">
+          <label for="grade12Year">Grade 12 Completion Year *</label>
+          <input id="grade12Year" name="grade12Year" type="number"
+                 min="1950" max="2100" required>
+        </div>
+
+        <div class="field">
+          <label for="studyMode">Study Mode *</label>
+          <select id="studyMode" name="studyMode" required>
+            <option value="">Select study mode</option>
+            <option value="Regular School">Regular School</option>
+            <option value="DODL">DODL / Distance Education</option>
+            <option value="FODE">FODE</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="examNumber">Grade 12 Examination Number</label>
+          <input id="examNumber" name="examNumber" type="text">
+        </div>
+
+        <div class="field full">
+          <label for="qualifications">Other Qualifications (if any)</label>
+          <textarea id="qualifications" name="qualifications"
+                    rows="3"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: DOCUMENT UPLOADS -->
+    <section class="section">
+      <h2>Section 4: Supporting Documents</h2>
+
+      <p>
+        The following upload fields are for demonstration only. Files selected
+        here are not sent to UPNG or saved to an admissions database.
+      </p>
+
+      <div class="field">
+        <label for="idDocument">Valid Identification Document *</label>
+        <input id="idDocument" name="idDocument" type="file"
+               accept=".pdf,.jpg,.jpeg,.png" required>
+        <span class="hint">Accepted examples: valid ID, PDF, JPG or PNG.</span>
+      </div>
+
+      <div class="field">
+        <label for="photo">Applicant Passport-Style Photo *</label>
+        <input id="photo" name="photo" type="file"
+               accept=".jpg,.jpeg,.png" required>
+      </div>
+
+      <div class="field">
+        <label for="grade10Cert">Grade 10 Certificate *</label>
+        <input id="grade10Cert" name="grade10Cert" type="file"
+               accept=".pdf,.jpg,.jpeg,.png" required>
+      </div>
+
+      <div class="field">
+        <label for="grade12Cert">Grade 12 Certificate *</label>
+        <input id="grade12Cert" name="grade12Cert" type="file"
+               accept=".pdf,.jpg,.jpeg,.png" required>
+      </div>
+
+      <div class="field">
+        <label for="transcript">DODL / FODE Transcript, if applicable</label>
+        <input id="transcript" name="transcript" type="file"
+               accept=".pdf,.jpg,.jpeg,.png">
+      </div>
+
+      <p class="hint">
+        The required documents and accepted formats must be checked against
+        UPNG's current admissions instructions before this prototype is used.
+      </p>
+    </section>
+
+    <!-- SECTION 5: PROGRAMME SELECTION -->
+    <section class="section">
+      <h2>Section 5: Programme Selection</h2>
+      <p>Select only one preferred programme. *</p>
+
+      <label class="programme-option">
+        <input type="radio" name="programme"
+               value="Business and Management Foundation" required>
+        <span>Business &amp; Management Foundation</span>
+      </label>
+
+      <label class="programme-option">
+        <input type="radio" name="programme" value="Bachelor of Laws">
+        <span>Bachelor of Laws</span>
+      </label>
+
+      <label class="programme-option">
+        <input type="radio" name="programme" value="Bachelor of Arts">
+        <span>Bachelor of Arts</span>
+      </label>
+
+      <label class="programme-option">
+        <input type="radio" name="programme"
+               value="Bachelor of Arts - Information and Communication Sciences">
+        <span>Bachelor of Arts — Information &amp; Communication Sciences</span>
+      </label>
+
+      <label class="programme-option">
+        <input type="radio" name="programme"
+               value="Bachelor of Arts - Journalism and Public Relations">
+        <span>Bachelor of Arts — Journalism &amp; Public Relations</span>
+      </label>
+
+      <label class="programme-option">
+        <input type="radio" name="programme"
+               value="Bachelor of Arts - Psychology">
+        <span>Bachelor of Arts — Psychology</span>
+      </label>
+
+      <label class="programme-option">
+        <input type="radio" name="programme"
+               value="Bachelor of Arts - Social Work">
+        <span>Bachelor of Arts — Social Work</span>
+      </label>
+
+      <label class="programme-option">
+        <input type="radio" name="programme"
+               value="Foundation Program - School of Natural and Physical Sciences">
+        <span>Foundation Program — School of Natural &amp; Physical Sciences</span>
+      </label>
+
+      <p class="hint">
+        This is the programme list supplied for this prototype. It may not
+        include every programme currently offered by UPNG.
+      </p>
+    </section>
+
+    <!-- SECTION 6: PAYMENT -->
+    <section class="section" id="payment">
+      <h2>Section 6: Application Payment Details</h2>
+
+      <div class="notice danger">
+        <strong>Verify before paying.</strong>
+        The bank account details below have not been independently verified
+        here. Contact UPNG through an official channel to confirm the account
+        name, account number and application fee before transferring any money.
+        Do not rely on this prototype alone as proof of payment instructions.
+      </div>
+
+      <div class="payment-details">
+        <div class="payment-row">
+          <span>Bank</span>
+          <span>BSP</span>
+        </div>
+
+        <div class="payment-row">
+          <span>Account Name</span>
+          <span>University of Papua New Guinea</span>
+        </div>
+
+        <div class="payment-row">
+          <span>Account Number</span>
+          <span>0001466960</span>
+        </div>
+
+        <div class="payment-row">
+          <span>Application Fee Displayed</span>
+          <span class="fee">K100.00</span>
+        </div>
+      </div>
+
+      <p class="hint">
+        The account name, account number and fee above are provided for this
+        prototype and should not be treated as confirmed official payment
+        instructions.
+      </p>
+
+      <h3>Payment Record</h3>
+
+      <div class="grid">
+        <div class="field">
+          <label for="paymentReference">Transaction / Reference Number *</label>
+          <input id="paymentReference" name="paymentReference"
+                 type="text" required>
+        </div>
+
+        <div class="field">
+          <label for="paymentDate">Payment Date *</label>
+          <input id="paymentDate" name="paymentDate"
+                 type="date" required>
+        </div>
+
+        <div class="field full">
+          <label for="receipt">Payment Receipt *</label>
+          <input id="receipt" name="receipt" type="file"
+                 accept=".pdf,.jpg,.jpeg,.png" required>
+          <span class="hint">
+            Demo only: selecting a receipt does not submit it to UPNG.
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: DECLARATION -->
+    <section class="section" id="declaration">
+      <h2>Section 7: Applicant Declaration</h2>
+
+      <div class="declaration">
         <p>
-            This portal is for Non-School Leaver applicants applying for
-            admission consideration.
+          I declare that the information I have entered is accurate to the
+          best of my knowledge. I understand that the university may require
+          evidence to verify the information and supporting documents I provide.
         </p>
 
-        <p>
-            Official NOAS information can be accessed through
-            <a href="https://apply.dherst.gov.pg" target="_blank">
-                DHERST NOAS
-            </a>.
-        </p>
-
-    </div>
-
-
-    <!-- WARNING -->
-
-    <div class="warning">
-        ⚠️ <strong>IMPORTANT WARNING:</strong>
-        Providing false, misleading, forged, or incorrect information may
-        result in permanent disqualification from UPNG admission.
-    </div>
-
-
-    <form id="applicationForm" novalidate>
-
-        <!-- PERSONAL INFORMATION -->
-
-        <div class="card">
-
-            <h2>1. Applicant Information</h2>
-
-            <label>
-                Full Name <span class="required">*</span>
-            </label>
-            <input type="text" id="fullName" required>
-
-            <label>
-                Email Address <span class="required">*</span>
-            </label>
-            <input type="email" id="email" required>
-
-            <div id="emailError" class="error-text">
-                This email has already been used for an application.
-            </div>
-
-            <label>
-                Phone Number <span class="required">*</span>
-            </label>
-            <input type="tel" id="phone" required>
-
-            <label>
-                Date of Birth <span class="required">*</span>
-            </label>
-            <input type="date" id="dob" required>
-
-            <label>
-                Citizenship <span class="required">*</span>
-            </label>
-            <input type="text" id="citizenship" required>
-
-            <label>
-                Current Address <span class="required">*</span>
-            </label>
-            <textarea id="address" required></textarea>
-
-            <label>
-                Province <span class="required">*</span>
-            </label>
-            <input type="text" id="province" required>
-
-            <label>
-                District <span class="required">*</span>
-            </label>
-            <input type="text" id="district" required>
-
-            <label>
-                LLG <span class="required">*</span>
-            </label>
-            <input type="text" id="llg" required>
-
-            <label>
-                Town / Village <span class="required">*</span>
-            </label>
-            <input type="text" id="village" required>
-
-        </div>
-
-
-        <!-- FAMILY INFORMATION -->
-
-        <div class="card">
-
-            <h2>2. Parent / Guardian Information</h2>
-
-            <label>
-                Father's Full Name <span class="required">*</span>
-            </label>
-            <input type="text" id="fatherName" required>
-
-            <label>
-                Father's Occupation <span class="required">*</span>
-            </label>
-            <input type="text" id="fatherOccupation" required>
-
-            <label>
-                Mother's Full Name <span class="required">*</span>
-            </label>
-            <input type="text" id="motherName" required>
-
-            <label>
-                Mother's Occupation <span class="required">*</span>
-            </label>
-            <input type="text" id="motherOccupation" required>
-
-            <label>
-                Guardian / Emergency Contact <span class="required">*</span>
-            </label>
-            <input type="text" id="guardian" required>
-
-            <label>
-                Guardian Phone Number <span class="required">*</span>
-            </label>
-            <input type="tel" id="guardianPhone" required>
-
-        </div>
-
-
-        <!-- EDUCATION -->
-
-        <div class="card">
-
-            <h2>3. Education Information</h2>
-
-            <label>
-                Previous School Attended <span class="required">*</span>
-            </label>
-            <input type="text" id="previousSchool" required>
-
-            <label>
-                Last School Attended <span class="required">*</span>
-            </label>
-            <input type="text" id="lastSchool" required>
-
-            <label>
-                Grade 10 Completion Year <span class="required">*</span>
-            </label>
-            <input type="number" id="grade10Year" required>
-
-            <label>
-                Grade 12 Completion Year <span class="required">*</span>
-            </label>
-            <input type="number" id="grade12Year" required>
-
-            <label>
-                Study Mode / Institution
-                <span class="required">*</span>
-            </label>
-            <select id="studyMode" required>
-                <option value="">Select</option>
-                <option>Regular School</option>
-                <option>DODL</option>
-                <option>FODE</option>
-                <option>Other</option>
-            </select>
-
-        </div>
-
-
-        <!-- DOCUMENTS -->
-
-        <div class="card">
-
-            <h2>4. Required Documents</h2>
-
-            <p class="small">
-                Upload clear and readable copies of the required documents.
-            </p>
-
-            <label>
-                Valid ID (any valid ID) <span class="required">*</span>
-            </label>
-            <input type="file" id="validId" accept="image/*,.pdf" required>
-
-            <label>
-                Applicant Photo <span class="required">*</span>
-            </label>
-            <input type="file" id="photo" accept="image/*" required>
-
-            <label>
-                Grade 10 Certificate <span class="required">*</span>
-            </label>
-            <input type="file" id="grade10Certificate"
-                   accept="image/*,.pdf" required>
-
-            <label>
-                Grade 12 Certificate <span class="required">*</span>
-            </label>
-            <input type="file" id="grade12Certificate"
-                   accept="image/*,.pdf" required>
-
-            <label>
-                DODL / FODE Transcript
-            </label>
-            <input type="file" id="transcript"
-                   accept="image/*,.pdf">
-
-        </div>
-
-
-        <!-- PROGRAMME -->
-
-        <div class="card">
-
-            <h2>5. Programme Selection</h2>
-
-            <p>
-                Select <strong>ONE</strong> preferred programme.
-            </p>
-
-            <div class="program-box" id="programBox">
-
-                <label class="program-option">
-                    <input type="radio" name="programme"
-                           value="Business & Management Foundation">
-                    Business & Management Foundation
-                </label>
-
-                <label class="program-option">
-                    <input type="radio" name="programme"
-                           value="Bachelor of Laws">
-                    Bachelor of Laws
-                </label>
-
-                <label class="program-option">
-                    <input type="radio" name="programme"
-                           value="Bachelor of Arts">
-                    Bachelor of Arts
-                </label>
-
-                <label class="program-option">
-                    <input type="radio" name="programme"
-                           value="Bachelor of Arts — Information & Communication Sciences">
-                    Bachelor of Arts — Information & Communication Sciences
-                </label>
-
-                <label class="program-option">
-                    <input type="radio" name="programme"
-                           value="Bachelor of Arts — Journalism & Public Relations">
-                    Bachelor of Arts — Journalism & Public Relations
-                </label>
-
-                <label class="program-option">
-                    <input type="radio" name="programme"
-                           value="Bachelor of Arts — Psychology">
-                    Bachelor of Arts — Psychology
-                </label>
-
-                <label class="program-option">
-                    <input type="radio" name="programme"
-                           value="Bachelor of Arts — Social Work">
-                    Bachelor of Arts — Social Work
-                </label>
-
-                <label class="program-option">
-                    <input type="radio" name="programme"
-                           value="Foundation Program — School of Natural & Physical Sciences">
-                    Foundation Program — School of Natural & Physical Sciences
-                </label>
-
-            </div>
-
-        </div>
-
-
-        <!-- PAYMENT -->
-
-        <div class="card">
-
-            <h2>6. Application Payment</h2>
-
-            <label>Bank</label>
-            <input type="text" value="BSP" readonly>
-
-            <label>Account Number</label>
-            <input type="text" value="0001466960" readonly>
-
-            <label>Payee Name</label>
-            <input type="text" value="Yauyu Turame" readonly>
-
-            <label>Application Fee</label>
-            <input type="text" value="K100.00" readonly>
-
-            <label>
-                Transaction / Reference Number
-                <span class="required">*</span>
-            </label>
-            <input type="text" id="transactionNumber" required>
-
-            <label>
-                Payment Date <span class="required">*</span>
-            </label>
-            <input type="date" id="paymentDate" required>
-
-            <label>
-                Payment Receipt / Confirmation
-                <span class="required">*</span>
-            </label>
-            <input type="file" id="paymentReceipt"
-                   accept="image/*,.pdf" required>
-
-        </div>
-
-
-        <!-- DECLARATION -->
-
-        <div class="card">
-
-            <h2>7. Applicant Declaration</h2>
-
-            <label>
-                <input type="checkbox" id="declaration" required
-                       style="width:auto;">
-                I declare that the information and documents provided are
-                true and correct.
-                <span class="required">*</span>
-            </label>
-
-        </div>
-
-
-        <!-- SUBMIT -->
-
-        <button type="submit" id="submitBtn">
-            Submit Application
+        <label for="declarationCheck">
+          <input id="declarationCheck" name="declarationCheck"
+                 type="checkbox" required>
+          <span>
+            I have read and agree with the applicant declaration above. *
+          </span>
+        </label>
+      </div>
+
+      <div class="buttons">
+        <button type="submit" class="submit-btn">
+          Submit Demonstration Form
         </button>
 
-        <div id="successMessage" class="success">
+        <button type="reset" class="reset-btn">
+          Clear Form
+        </button>
+      </div>
 
-            <h2>Application Successfully Submitted</h2>
+      <p class="hint">
+        The submit button validates the form in your browser. It does not
+        submit a real application to UPNG.
+      </p>
+    </section>
 
-            <p>
-                Thank you for successfully submitting your application and
-                supporting documents.
-            </p>
-
-            <p>
-                Your application has been received for review.
-            </p>
-
-            <p>
-                Please wait a few days while we review your application.
-            </p>
-
-            <p>
-                We will use the same email address you provided to contact
-                you regarding the status of your application.
-            </p>
-
-            <p>
-                Please keep your email address active and check your inbox
-                regularly for updates.
-            </p>
-
-        </div>
-
-    </form>
-
-</div>
-
+  </form>
+</main>
 
 <footer>
-    UPNG Non-School Leaver Application Portal — 2027
+  <p><strong>University of Papua New Guinea — NSL Portal Prototype</strong></p>
+  <p>Demonstration website for application-form layout and testing.</p>
+  <p>This page is not an official UPNG website and is not connected to its
+     admissions systems.</p>
+  <p>© 2026 — Prototype only</p>
 </footer>
 
-
 <script>
+  const form = document.getElementById("nslForm");
+  const result = document.getElementById("result");
+  const dob = document.getElementById("dob");
+  const grade10Year = document.getElementById("grade10Year");
+  const grade12Year = document.getElementById("grade12Year");
+  const paymentDate = document.getElementById("paymentDate");
 
-const form = document.getElementById("applicationForm");
-const submitBtn = document.getElementById("submitBtn");
-const successMessage = document.getElementById("successMessage");
-const emailInput = document.getElementById("email");
-const emailError = document.getElementById("emailError");
-const programBox = document.getElementById("programBox");
+  // Prevent future dates in date fields.
+  const today = new Date();
+  const localToday = [
+    today.getFullYear(),
+    String(today.getMonth() + 1).padStart(2, "0"),
+    String(today.getDate()).padStart(2, "0")
+  ].join("-");
 
+  dob.max = localToday;
+  paymentDate.max = localToday;
 
-function emailAlreadyUsed() {
+  // Keep year fields within a sensible range.
+  const currentYear = today.getFullYear();
+  grade10Year.max = currentYear;
+  grade12Year.max = currentYear;
 
-    const email = emailInput.value.trim().toLowerCase();
+  function showMessage(title, message) {
+    result.style.display = "block";
+    result.replaceChildren();
 
-    if (!email) {
-        return false;
-    }
+    const heading = document.createElement("h2");
+    heading.textContent = title;
 
-    const savedEmail =
-        localStorage.getItem("submittedApplicationEmail");
+    const paragraph = document.createElement("p");
+    paragraph.textContent = message;
 
-    return savedEmail === email;
-}
+    result.append(heading, paragraph);
+    result.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
-
-function checkProgramme() {
-
-    const selected =
-        document.querySelector('input[name="programme"]:checked');
-
-    if (selected) {
-        programBox.classList.remove("invalid");
-        return true;
-    }
-
-    programBox.classList.add("invalid");
-    return false;
-}
-
-
-function updateValidation() {
-
-    const fields = form.querySelectorAll(
-        "input[required], select[required], textarea[required]"
-    );
-
-    fields.forEach(field => {
-
-        if (field.type === "checkbox") {
-
-            if (field.checked) {
-                field.classList.remove("invalid");
-                field.classList.add("valid");
-            } else {
-                field.classList.remove("valid");
-                field.classList.add("invalid");
-            }
-
-            return;
-        }
-
-        if (field.value.trim() !== "") {
-
-            if (field.checkValidity()) {
-                field.classList.remove("invalid");
-                field.classList.add("valid");
-            } else {
-                field.classList.remove("valid");
-                field.classList.add("invalid");
-            }
-
-        } else {
-
-            field.classList.remove("valid");
-            field.classList.add("invalid");
-        }
-
-    });
-
-    const programmeOK = checkProgramme();
-
-    const formOK =
-        form.checkValidity() &&
-        programmeOK &&
-        !emailAlreadyUsed();
-
-    if (emailAlreadyUsed()) {
-        emailError.style.display = "block";
-        emailInput.classList.add("invalid");
-        emailInput.classList.remove("valid");
-    } else {
-        emailError.style.display = "none";
-    }
-
-    if (formOK) {
-        submitBtn.classList.add("ready");
-    } else {
-        submitBtn.classList.remove("ready");
-    }
-
-}
-
-
-form.addEventListener("input", updateValidation);
-form.addEventListener("change", updateValidation);
-
-
-form.addEventListener("submit", function(event) {
-
+  form.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    updateValidation();
-
-    if (!form.checkValidity()) {
-
-        alert(
-            "Please complete all required fields correctly before submitting."
-        );
-
-        return;
+    if (!form.reportValidity()) {
+      return;
     }
 
+    const selectedProgramme =
+      form.querySelector('input[name="programme"]:checked');
 
-    if (!checkProgramme()) {
-
-        alert("Please select one programme.");
-
-        return;
+    if (!selectedProgramme) {
+      showMessage(
+        "Programme Required",
+        "Please select one programme before continuing."
+      );
+      return;
     }
 
+    const year10 = grade10Year.value;
+    const year12 = grade12Year.value;
 
-    if (emailAlreadyUsed()) {
-
-        alert(
-            "This email address has already been used for an application."
-        );
-
-        emailError.style.display = "block";
-
-        return;
+    if (year10 && Number(year10) > Number(year12)) {
+      showMessage(
+        "Check Education Details",
+        "The Grade 10 completion year should not be later than the Grade 12 completion year."
+      );
+      grade10Year.focus();
+      return;
     }
 
-
-    const email =
-        emailInput.value.trim().toLowerCase();
-
-
-    localStorage.setItem(
-        "submittedApplicationEmail",
-        email
+    showMessage(
+      "Form Validation Successful — Prototype Only",
+      "Your entries passed the browser's basic validation. No application has been sent to UPNG, no documents have been uploaded to a server, and no official application reference has been generated. Do not treat this message as confirmation of an application or payment. A secure, authorized admissions backend is required for real submissions."
     );
+  });
 
-
-    submitBtn.classList.remove("ready");
-    submitBtn.classList.add("submitted");
-
-    submitBtn.textContent = "Application Submitted";
-
-    submitBtn.disabled = true;
-
-
-    successMessage.style.display = "block";
-
-
-    window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: "smooth"
-    });
-
-});
-
-
-updateValidation();
-
+  form.addEventListener("reset", function() {
+    result.style.display = "none";
+    result.replaceChildren();
+  });
 </script>
 
 </body>
-    </html>
+</html>
